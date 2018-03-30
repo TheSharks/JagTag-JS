@@ -1,6 +1,6 @@
 # JagTag-JS
 
-This is a JavaScript port of the [JagTag text parsing language](https://github/jagrosh/JagTag), originally written in Java by [@jagrosh](https://github.com/jagrosh).
+This is a JavaScript port of the [JagTag text parsing language](https://github.com/jagrosh/JagTag), originally written in Java by [@jagrosh](https://github.com/jagrosh).
 
 ## What is JagTag?
 
