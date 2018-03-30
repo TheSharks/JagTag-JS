@@ -1,4 +1,5 @@
 /* eslint-disable no-extend-native */
+const moment = require('moment')
 
 // Native extensions
 
@@ -49,12 +50,11 @@ function safeCompare (item1, conditional, item2) {
 }
 
 // Get creation time of a Discord snowflake
-const Moment = require('moment')
 
 function getCreationTime (discordSnowflake) {
   // Shamelessly nicked this code from https://github.com/qeled/discordie
   let formatted = (+discordSnowflake / 4194304) + 1420070400000
-  return Moment(new Date(parseInt(formatted)))
+  return moment(new Date(parseInt(formatted)))
 }
 
 exports.mergeObjects = mergeObjects
