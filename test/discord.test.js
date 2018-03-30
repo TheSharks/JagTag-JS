@@ -73,8 +73,8 @@ describe('Discord expression parser', () => {
     expect(JagTagParser('{randuser}', { members: mockUsers })).toMatch(/LWTech|Dougley|Zaza|Piero|Nenkai/gi)
   })
 
-  it('Returns a random online user', () => {
-    expect(JagTagParser('{randonline}', { members: mockUsers })).toMatch(/LWTech|Dougley|Zaza|Piero|Nenkai/gi)
+  it('Returns a random online user or a warning when nobody is online', () => {
+    expect(JagTagParser('{randonline}', { members: mockUsers })).toMatch(/LWTech|Dougley|Zaza|Piero|Nenkai|NO USERS ONLINE/gi)
   })
 
   it('Returns a random channel', () => {

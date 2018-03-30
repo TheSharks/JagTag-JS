@@ -1,3 +1,7 @@
 # NPM
 node_modules
 *.log
+
+# Temp for indev stuff
+docs
+website

@@ -27,7 +27,7 @@ const parsers = {
     if (!Array.isArray(args.members)) throw new Error(`Parameter 'members' for randonline must be an array of Member objects`)
     else {
       args.members = args.members.filter(u => u.status === 'online').map(u => u.username)
-      return args.members[Math.floor(Math.random() * args.members.length)]
+      return args.members[Math.floor(Math.random() * args.members.length)] || 'NO USERS ONLINE'
     }
   },
   randchannel: args => {

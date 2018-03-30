@@ -4,6 +4,7 @@
   "description": "A JavaScript port of https://github.com/jagrosh/JagTag.",
   "main": "index.js",
   "scripts": {
+    "start": "cd website && npm start",
     "test": "eslint . && jest",
     "test-dev": "jest --watch"
   },
