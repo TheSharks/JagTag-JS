@@ -1,0 +1,8 @@
+const moment = require('moment')
+
+const parsers = {
+  now: (args, format) => !format ? new Date().toUTCString() : moment().utc().format(format),
+  time: (args, ms, format) => !format ? new Date(parseInt(ms)).toUTCString() : moment(parseInt(ms)).utc().format(format)
+}
+
+module.exports = parsers

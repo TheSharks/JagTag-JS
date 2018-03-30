@@ -1,0 +1,36 @@
+{
+  "name": "jagtag-js",
+  "version": "1.0.0",
+  "description": "A JavaScript port of https://github.com/jagrosh/JagTag.",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint . && jest",
+    "test-dev": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheSharks/JagTag-JS.git"
+  },
+  "author": "TheSharks",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/TheSharks/JagTag-JS/issues"
+  },
+  "homepage": "https://github.com/TheSharks/JagTag-JS#readme",
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "jest": "^22.4.3",
+    "randstr": "^1.0.6"
+  },
+  "dependencies": {
+    "levenshtein-lite": "^1.0.9",
+    "lokijs": "^1.5.3",
+    "moment": "^2.21.0",
+    "require-directory": "^2.1.1"
+  }
+}
