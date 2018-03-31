@@ -1,7 +1,7 @@
 const parsers = {
-  args: args => args,
-  argslen: args => args.length,
-  arg: (args, index) => args[index]
+  args: args => args.tagArgs.join(', '),
+  argslen: args => args.tagArgs.length,
+  arg: (args, index) => args.tagArgs[index]
 }
 
 module.exports = parsers

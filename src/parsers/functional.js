@@ -2,10 +2,10 @@ const safeCompare = require('../utils').safeCompare
 
 const parsers = {
   note: (args, str) => '', // Could as well pipe it to /dev/null
-  choose: function (args, options) { // Using legacy function because access to Function.arguments is required
-    args = null // This function does not accept parser-level arguments, so they are nulled just in case
+  choose: function () { // Using legacy function because access to Function.arguments is required
+    // No arguments because Function.arguments is accessed instead (Due to variable option amount)
     let choices = [...arguments]
-    choices = choices.slice(1) // Remove args
+    choices = choices.slice(1) // Remove args that might be passed from the parser
     return choices[Math.floor(Math.random() * choices.length)]
   },
   range: (args, start, end) => {

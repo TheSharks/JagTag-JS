@@ -6,7 +6,13 @@ const allParsers = mergeObjects(parsers)
 /**
  * Parse a string for JagTag-formatted tags and replace them.
  * @param {String} string String to parse tags from.
- * @param {Array} args Additional arguments to the parser.
+ * @param {Object} args Additional arguments to the parser.
+ * @param {Array} args.tagArgs Additional arguments from the command. (Passed after initial tag definition)
+ * @param {Object} args.author Author object from Eris, the user than ran the command.
+ * @param {Object} args.channel Channel object from Eris, the channel in which the command was ran.
+ * @param {Object} args.guild Guild object from Eris, the guild in which the command was ran.
+ * @param {Array} args.channels Array of Eris channel objects, all channels in the current guild. Used by randchannel. (Recommended: Only pass when necessary)
+ * @param {Array} args.members Array of Eris member objects, all members in the current guild. Used by randuser and randonline. (Recommended: Only pass when necessary)
  * @returns {String} Parsed string.
  */
 function parse (string, args) {
