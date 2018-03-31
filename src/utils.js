@@ -54,7 +54,7 @@ function safeCompare (item1, conditional, item2) {
 function getCreationTime (discordSnowflake) {
   // Shamelessly nicked this code from https://github.com/qeled/discordie
   let formatted = (+discordSnowflake / 4194304) + 1420070400000
-  return moment(new Date(parseInt(formatted)))
+  return moment(new Date(parseInt(formatted))).utc()
 }
 
 exports.mergeObjects = mergeObjects

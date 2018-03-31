@@ -34,7 +34,7 @@ describe('Discord expression parser', () => {
   })
 
   it('Returns creation time of Discord snowflakes', () => {
-    expect(JagTagParser('{creation:152664793587777537}')).toBe('Fri Feb 26 2016 07:35:23 GMT+0100')
+    expect(JagTagParser('{creation:152664793587777537}')).toBe('Fri Feb 26 2016 06:35:23 GMT+0000')
   })
 
   it('Returns author ID', () => {
