@@ -6,7 +6,8 @@
   "scripts": {
     "start": "cd website && npm start",
     "test": "eslint . && jest",
-    "test-dev": "jest --watch"
+    "test-dev": "jest --watch",
+    "prepare": "node getModifiedPlugin.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "levenshtein-lite": "^1.0.9",
     "lokijs": "^1.5.3",
     "moment": "^2.21.0",
-    "require-directory": "^2.1.1"
+    "require-directory": "^2.1.1",
+    "xregexp": "^4.1.1"
   }
 }

@@ -15,6 +15,14 @@ describe('Parser', () => {
     expect(JagTagParser('string with {upper:test1} and {lower:TEST2}')).toBe('string with TEST1 and test2')
   })
 
+  it('[EX] Replaces nested tags', () => {
+    expect(JagTagParser('{upper:{lower:TEST}}')).toBe('TEST')
+  })
+
+  it('[EX] Replaces several nested tags', () => {
+    expect(JagTagParser('{upper:{lower:{upper:test}}} {lower:{upper:{lower:test}}}')).toBe('TEST test')
+  })
+
   it('[EX] Returns undefined when no string is passed', () => {
     expect(JagTagParser()).toBe(undefined)
   })
@@ -24,6 +32,14 @@ describe('Parser', () => {
   })
 
   it('[EX] Does not replace invalid tags', () => {
-    expect(JagTagParser('string with {faketag} and unclosed {args')).toBe('string with {faketag} and unclosed {args')
+    expect(JagTagParser('string with {faketag}')).toBe('string with {faketag}')
+  })
+
+  it('[EX] Breaks parsing if a tag is left unclosed', () => {
+    expect(JagTagParser('string with {upper:test} and unclosed {args')).toBe('string with {upper:test} and unclosed {args')
+  })
+
+  it('[EX] Does not replace invalid nested tags within valid ones', () => {
+    expect(JagTagParser('{upper:{doot:TEST}}')).toBe('{DOOT:TEST}')
   })
 })
