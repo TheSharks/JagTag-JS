@@ -22,7 +22,7 @@
   "bugs": {
     "url": "https://github.com/TheSharks/JagTag-JS/issues"
   },
-  "homepage": "https://github.com/TheSharks/JagTag-JS#readme",
+  "homepage": "https://thesharks.github.io/JagTag-JS/",
   "devDependencies": {
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",

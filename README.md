@@ -1,6 +1,9 @@
 # JagTag-JS
 
-This is a JavaScript port of the [JagTag text parsing language](https://github.com/jagrosh/JagTag), originally written in Java by [@jagrosh](https://github.com/jagrosh).
+A JavaScript port of the [JagTag text parsing language](https://github.com/jagrosh/JagTag), originally written in Java by [@jagrosh](https://github.com/jagrosh).
+
+
+This document is a mere README; most of the relevant information can be found in the [documentation](https://thesharks.github.io/JagTag-JS).
 
 ## What is JagTag?
 
@@ -26,7 +29,7 @@ const JagTagParser = require('jagtag-js')
 JagTagParser('string to parse', argsObject)
 ```
 
-For more information about the args object, see the API reference.
+For more information about the args object, see the [API reference](https://thesharks.github.io/JagTag-JS/developers/api).
 
 ### Simple example
 
@@ -41,7 +44,7 @@ JagTagParser('change {upper:this} to uppercase')
 
 ### Advanced example
 
-More advanced operations may require you to pass arguments to the parser in order to function correctly. Please check the developer documentation for information on what parser-level arguments need to be passed for which method.
+More advanced operations may require you to pass arguments to the parser in order to function correctly. Please check the [developer documentation](https://thesharks.github.io/JagTag-JS/developers/intro) for information on what parser-level arguments need to be passed for which method.
 
 ```js
 const JagTagParser = require('jagtag-js')
@@ -50,7 +53,7 @@ JagTagParser('{argslen} arguments were passed to this tag', { tagArgs: [ 'item1'
 // Returns '3 arguments were passed to this tag'
 ```
 
-For more examples and help, check the documentation.
+For more examples and help, check the [documentation](https://thesharks.github.io/JagTag-JS).
 
 ## Contributing
 
