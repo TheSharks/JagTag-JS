@@ -9,7 +9,7 @@ describe('Time parser', () => {
   })
 
   it('Returns current date with specified formatting', () => {
-    expect(JagTagParser('{now:YYYY}')).toBe(new Date().getFullYear().toString())
+    expect(JagTagParser('{now:D.M.YYYY}')).toBe(moment().utc().format('D.M.YYYY'))
   })
 
   it('Formats time', () => {

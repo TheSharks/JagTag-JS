@@ -12,18 +12,18 @@ describe('Discord expression parser', () => {
     })).toBe('I am LWTech and that is Nenkai')
   })
 
-  it('Returns author nickname or searches for a user with a specified nickname', () => {
-    expect(JagTagParser('My nick is {nick} and their is {nick:regex}', {
+  it('Returns author nickname or returns the nickname of a user based on a username search', () => {
+    expect(JagTagParser('My nick is {nick} and their is {nick:zaz}', {
       author: mockUser,
       members: mockUsers
     })).toMatch(/My nick is LW and their is (uINT32|SaltyDev|Webscale|Wallaby|RegexGod)/gi)
   })
 
-  it('Returns author discriminator or searches for a user with a specified nickname', () => {
-    expect(JagTagParser('My discriminator is {discrim} and I can find {discrim:1234} based on their discrim', {
+  it('Returns author discriminator or returns the discrim of a user based on a username search', () => {
+    expect(JagTagParser('My discriminator is {discrim} and I can find Dougleys {discrim:doug} discrim', {
       author: mockUser,
       members: mockUsers
-    })).toMatch(/My discriminator is 0005 and I can find (LWTech|Dougley|Zaza|Piero|Nenkai) based on their discrim/gi)
+    })).toMatch(/My discriminator is 0005 and I can find Dougleys ([0-9]{4}) discrim/gi)
   })
 
   it('Returns author avatar URL or returns the avatar URL for a specified username', () => {
@@ -79,6 +79,10 @@ describe('Discord expression parser', () => {
 
   it('Returns a random channel', () => {
     expect(JagTagParser('{randchannel}', { channels: Array.from(Object.values(mockServer.channels)) })).toMatch(/newsfeed|projects|meta|offtopic|general/gi)
+  })
+
+  it('Returns unchanged strings when randomisers are called without the members prop', () => {
+    expect(JagTagParser('{randuser}{randonline}{randchannel}')).toBe('{randuser}{randonline}{randchannel}')
   })
 })
 

@@ -35,6 +35,10 @@ describe('Parser', () => {
     expect(JagTagParser('string with {faketag}')).toBe('string with {faketag}')
   })
 
+  it('[EX] Does not replace tags from disabled parsers', () => {
+    expect(JagTagParser('{upper:test}', { disabledParsers: ['strings'] })).toBe('{upper:test}')
+  })
+
   it('[EX] Breaks parsing if a tag is left unclosed', () => {
     expect(JagTagParser('string with {upper:test} and unclosed {args')).toBe('string with {upper:test} and unclosed {args')
   })

@@ -1,0 +1,67 @@
+# MkDocs
+
+site_name: 'JagTag-JS Documentation'
+site_author: 'TheSharks'
+site_url: 'http://thesharks.github.io/JagTag-JS'
+
+repo_name: 'TheSharks/JagTag-JS'
+repo_url: 'https://github.com/TheSharks/JagTag-JS'
+edit_uri: 'edit/master/docs/'
+
+copyright: 'Copyright © 2018 TheSharks. "Discord", "Discord App", and any associated logos are registered trademarks of Hammer & Chisel, inc.'
+
+pages:
+  - Home: 'index.md'
+  - Developers:
+    - Introduction: 'developers/intro.md'
+    - API: 'developers/api.md'
+    - Performance: 'developers/performance.md'
+  - Users:
+    - Introduction: 'users/intro.md'
+    - Methods:
+      - Home: 'users/methods/home.md'
+      - Discord: 'users/methods/discord.md'
+      - Arguments: 'users/methods/arguments.md'
+      - Functional: 'users/methods/functional.md'
+      - Strings: 'users/methods/strings.md'
+      - Time: 'users/methods/time.md'
+      - Variables: 'users/methods/variables.md'
+
+theme: 'material'
+
+# MkDocs-Material
+
+extra:
+  feature:
+    tabs: true
+  logo: 'img/settings.svg'
+  palette:
+    primary: 'indigo'
+    accent: 'blue'
+  font:
+    text: 'Droid Sans'
+    font: 'Droid Sans Mono'
+  social:
+    - type: 'github'
+      link: 'https://github.com/TheSharks'
+
+extra_javascript:
+  - 'js/runtime-replace.js'
+
+extra_css:
+  - 'css/custom.css'
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - footnotes
+  - meta
+  - toc:
+      permalink: true 
+  - pymdownx.inlinehilite
+  - pymdownx.details
+  - pymdownx.magiclink
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.mark

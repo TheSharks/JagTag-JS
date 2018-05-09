@@ -1,5 +1,5 @@
 const Loki = require('lokijs')
-const db = new Loki('tmp.json')
+const db = new Loki('../../jtvars.data')
 
 const variables = db.addCollection('variables')
 
@@ -13,7 +13,7 @@ const parsers = {
       name: name,
       createdIn: args.id
     })
-    return result.value || 'NOT FOUND'
+    return result && result.value ? result.value : 'undefined'
   },
   set: (args, name, value) => {
     variables.insert({

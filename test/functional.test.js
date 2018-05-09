@@ -19,6 +19,10 @@ describe('Functional parser', () => {
     expect(JagTagParser('{if:hello|===|hello|this was true|this was false}')).toBe('this was true')
   })
 
+  it('Executes math', () => {
+    expect(JagTagParser('{math:(2 + 2) * 3 / 4}')).toBe('3')
+  })
+
   it('Calculates absolute values', () => {
     expect(JagTagParser('{abs:-5}')).toBe('5')
   })
@@ -48,6 +52,6 @@ describe('Functional parser', () => {
   })
 
   it('Converts number base', () => {
-    expect(JagTagParser('{base:6|2}')).toBe('110')
+    expect(JagTagParser('{base:4|2}')).toBe('100')
   })
 })

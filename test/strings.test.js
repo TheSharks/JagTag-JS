@@ -20,6 +20,7 @@ describe('String parser', () => {
   })
 
   it('Trims white space', () => {
+    // This also trims newlines, but Jest does not parse it properly for some reason (See https://repl.it/@LWTech/Whitespace-Replacer)
     expect(JagTagParser('{oneline:lots     of     whitespace}')).toBe('lots of whitespace')
   })
 

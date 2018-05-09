@@ -3,8 +3,8 @@ const getCreationTime = require('../utils').getCreationTime
 
 const parsers = {
   user: (args, str) => authorOrSearchBySelector('username', str, args.author, args.members),
-  nick: (args, str) => authorOrSearchBySelector('nick', str, args.author, args.members, { returnValue: true }),
-  discrim: (args, str) => authorOrSearchBySelector('discriminator', str, args.author, args.members),
+  nick: (args, str) => authorOrSearchBySelector('nick', str, args.author, args.members, { returnValue: true, searchByUsername: true }),
+  discrim: (args, str) => authorOrSearchBySelector('discriminator', str, args.author, args.members, { returnValue: true, searchByUsername: true }),
   avatar: (args, str) => authorOrSearchBySelector('avatarURL', str, args.author, args.members, { returnValue: true, searchByUsername: true }),
   creation: (args, str) => getCreationTime(str),
   // The parameters for these must be Eris entities
@@ -17,21 +17,21 @@ const parsers = {
   channel: args => args.channel.name,
   channelid: args => args.channel.id,
   randuser: args => {
-    if (!Array.isArray(args.members)) throw new Error(`Parameter 'members' for randuser must be an array of Member objects `)
+    if (!args || !args.members || !Array.isArray(args.members)) throw new Error(`Parameter 'members' for randuser must be an array of Member objects `)
     else {
       args.members = args.members.map(u => u.username)
       return args.members[Math.floor(Math.random() * args.members.length)]
     }
   },
   randonline: args => {
-    if (!Array.isArray(args.members)) throw new Error(`Parameter 'members' for randonline must be an array of Member objects`)
+    if (!args || !args.members || !Array.isArray(args.members)) throw new Error(`Parameter 'members' for randonline must be an array of Member objects`)
     else {
       args.members = args.members.filter(u => u.status === 'online').map(u => u.username)
       return args.members[Math.floor(Math.random() * args.members.length)] || 'NO USERS ONLINE'
     }
   },
   randchannel: args => {
-    if (!Array.isArray(args.channels)) throw new Error(`Parameter 'members' for randchannel must be an array of TextChannel objects`)
+    if (!args || !args.channels || !Array.isArray(args.channels)) throw new Error(`Parameter 'members' for randchannel must be an array of TextChannel objects`)
     else {
       args.channels = args.channels.map(c => c.name)
       return args.channels[Math.floor(Math.random() * args.channels.length)]
