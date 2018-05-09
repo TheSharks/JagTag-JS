@@ -11,6 +11,7 @@ You can select a method category from the menu on the left or click on one of th
 
 - [Discord](/users/methods/discord)
 - [Arguments](/users/methods/arguments)
+- [Functional](/users/methods/functional)
 - [Strings](/users/methods/strings)
 - [Time](/users/methods/time)
 - [Variables](/users/methods/variables)
