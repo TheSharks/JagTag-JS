@@ -132,12 +132,12 @@
         },
         {
             "location": "/users/methods/home/",
-            "text": "Method reference\n\u00b6\n\n\nThis is the method reference for JagTag-JS. While most of this information is regurgitated from the original documentation, there are some key changes. Methods that differ from the original are marked with \nyellow markers\n.\n\n\nYou can select a method category from the menu on the left or click on one of the links below.\n\n\n\n\nDiscord\n\n\nArguments\n\n\nStrings\n\n\nTime\n\n\nVariables\n\n\n\n\n\n\nNote\n\n\nThe examples in this documentation assume that the usage context for the module is a \nDiscord\n bot. JagTag-JS may be implemented for other purposes as well, but this documentation does not explore or account for that aspect.",
+            "text": "Method reference\n\u00b6\n\n\nThis is the method reference for JagTag-JS. While most of this information is regurgitated from the original documentation, there are some key changes. Methods that differ from the original are marked with \nyellow markers\n.\n\n\nYou can select a method category from the menu on the left or click on one of the links below.\n\n\n\n\nDiscord\n\n\nArguments\n\n\nFunctional\n\n\nStrings\n\n\nTime\n\n\nVariables\n\n\n\n\n\n\nNote\n\n\nThe examples in this documentation assume that the usage context for the module is a \nDiscord\n bot. JagTag-JS may be implemented for other purposes as well, but this documentation does not explore or account for that aspect.",
             "title": "Home"
         },
         {
             "location": "/users/methods/home/#method-reference",
-            "text": "This is the method reference for JagTag-JS. While most of this information is regurgitated from the original documentation, there are some key changes. Methods that differ from the original are marked with  yellow markers .  You can select a method category from the menu on the left or click on one of the links below.   Discord  Arguments  Strings  Time  Variables    Note  The examples in this documentation assume that the usage context for the module is a  Discord  bot. JagTag-JS may be implemented for other purposes as well, but this documentation does not explore or account for that aspect.",
+            "text": "This is the method reference for JagTag-JS. While most of this information is regurgitated from the original documentation, there are some key changes. Methods that differ from the original are marked with  yellow markers .  You can select a method category from the menu on the left or click on one of the links below.   Discord  Arguments  Functional  Strings  Time  Variables    Note  The examples in this documentation assume that the usage context for the module is a  Discord  bot. JagTag-JS may be implemented for other purposes as well, but this documentation does not explore or account for that aspect.",
             "title": "Method reference"
         },
         {
