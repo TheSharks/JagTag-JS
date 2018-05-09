@@ -68,6 +68,7 @@ function parse (string, args, _callback) {
           // If parser exists, run function - otherwise leave tag unchanged
           result = allParsers.hasOwnProperty(tagDef.name) ? allParsers[tagDef.name](args || null, ...tagDef.func) : tag
         } catch (e) {
+          // TODO: Recovery from unclosed brace, so that all tags don't break
           if (args && args.enableLogging) console.error(e)
           result = tag // If errors are encountered, return unchanged tag
         }
