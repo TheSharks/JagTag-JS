@@ -44,12 +44,12 @@ jobs:
             mkdocs build
       - add_ssh_keys:
           fingerprints:
-              - "98:3f:0a:7d:6c:b9:3f:c1:88:9f:71:10:5a:d3:c0:e6"
+              - "90:a9:08:28:09:82:9e:a6:d7:b2:9e:aa:0b:85:6e:cc"
       - run:
           name: Deploy
           command: |
             . venv/bin/activate
-            git config user.email 18148938+linuswillner@users.noreply.github.com
+            git config user.email 9768134+Dougley@users.noreply.github.com
             mkdocs gh-deploy
 workflows:
   version: 2
