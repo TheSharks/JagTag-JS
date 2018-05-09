@@ -8,9 +8,10 @@
     "install-docs": "deps.bat",
     "start-docs": "mkdocs serve",
     "build": "mkdocs build",
-    "test": "eslint . && jest",
+    "test": "eslint . && jest --config jest.coverage.js",
+    "test-coverage": "jest --watch --config jest.coverage.js",
     "test-dev": "jest --watch",
-    "prepare": "node getModifiedPlugin.js"
+    "prepare": "node getPlugins.js"
   },
   "repository": {
     "type": "git",
@@ -33,6 +34,7 @@
     "randstr": "^1.0.6"
   },
   "dependencies": {
+    "expr-eval": "^1.2.1",
     "levenshtein-lite": "^1.0.9",
     "lokijs": "^1.5.3",
     "moment": "^2.21.0",

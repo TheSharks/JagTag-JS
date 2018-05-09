@@ -16,15 +16,17 @@ It's worth noting that the Discord-related tag functions have been developed to 
 
 ## Installation and usage
 
-If you wish to only install the module, install it with `npm i -P jagtag-js`. Make sure you have Node.js >= 8.x.x installed.
+JagTag-JS is available on NPM and you can install it with `npm i jagtag-js` (Use the --production flag if you don't need the dev deps). Make sure you have Node.js >= 8.x.x installed.
 
 Basic syntax:
 
 ```js
 const JagTagParser = require('jagtag-js')
 
-JagTagParser('string to parse', [ 'additional args as objects, arrays etc.' ])
+JagTagParser('string to parse', argsObject)
 ```
+
+For more information about the args object, see the API reference.
 
 ### Simple example
 
@@ -44,7 +46,7 @@ More advanced operations may require you to pass arguments to the parser in orde
 ```js
 const JagTagParser = require('jagtag-js')
 
-JagTagParser('{argslen} arguments were passed to this tag', [ 'item1', 'item2', 'item3' ])
+JagTagParser('{argslen} arguments were passed to this tag', { tagArgs: [ 'item1', 'item2', 'item3' ] })
 // Returns '3 arguments were passed to this tag'
 ```
 

@@ -1,5 +1,6 @@
 node_modules/*
-website/*
+coverage/*
+ramda.path.js
 *.json
 *.log
 *.md

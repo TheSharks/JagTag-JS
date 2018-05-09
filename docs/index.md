@@ -1,18 +1,13 @@
+title: JagTag-JS Documentation
+description: The documentation site for JagTag-JS
+path: tree/master/docs
+source: index.md
+
 # The JagTag-JS Docs
 
 Welcome to the documentation for JagTag-JS! On this site you can find information about JagTag-JS, aimed to give both end users and developers comprehensive information about the language, the library and the implementation of JagTag.
 
-If you wish to cut to the chase, here are the relevant documentation sections.
-
-<div>
-  <a>
-    <a href="/developers"><img src="img/icons/build_large.png" style="padding-left: 15px"></a>
-    <a href="/users"><img src="img/icons/assignment_large.png" style="padding-left: 42.5px"></a>
-    <br/>
-    <a href="/developers"><b>Developers</b></a>
-    <a href="/users" style="padding-left: 28.5px"><b>Users</b></a>
-  </a>
-</div>
+If you wish to cut to the chase, select the [Developers](/developers/intro) or [Users](/users/intro) section from the menu on the left.
 
 Otherwise, feel free to keep on reading!
 

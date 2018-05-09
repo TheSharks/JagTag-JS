@@ -1,6 +1,6 @@
 ### Thank you for displaying interest in contributing to JagTag-JS!
 
-For contributing, it's recommended to first clone the repository with `git clone https://github.com/TheSharks/JagTag-JS.git`.
+For contributing, it's recommended to first clone the repository with **git clone https://github.com/TheSharks/JagTag-JS.git**.
 
 Before you implement changes however, please consider the following.
 
@@ -20,6 +20,6 @@ You're free to implement changes that you believe will benefit the project in an
 
 ## Testing
 
-Make sure the development dependencies are installed. If you installed in production mode, run `npm i` again in order to get the devdeps. Then run `npm test` before you submit your PR.
+Make sure the development dependencies are installed. If you installed in production mode, run **npm i** again in order to get the devdeps. Then run **npm test** before you submit your PR. All tests must pass for the PR to be considered valid.
 
-**Note:** `npm run test-dev` can be used for testing on the fly.
+**Note:** **npm run test-dev** and **npm run test-coverage** can be used for testing with watch mode enabled.

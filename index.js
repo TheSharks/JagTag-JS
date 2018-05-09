@@ -11,6 +11,7 @@ const matchRecursive = str => XRegExp.matchRecursive(str, '{', '}', 'gi')
  * @param {Object} args Additional arguments to the parser.
  * @param {Array} args.tagArgs Additional arguments from the command. (Passed after initial tag definition)
  * @param {Array} args.disabledParsers Parser groups to disable.
+ * @param {Boolean} args.enableLogging Enable some logging of caught exceptions in methods.
  * @param {Object} args.author Author object from Eris, the user than ran the command.
  * @param {Object} args.channel Channel object from Eris, the channel in which the command was ran.
  * @param {Object} args.guild Guild object from Eris, the guild in which the command was ran.
@@ -43,6 +44,7 @@ function parse (string, args, _callback) {
 
     if (!tags) return string
     else {
+      // TODO: Asyncify this to allow several tags to be parsed at once?
       for (let tag of tags) {
         let stripped = tag.slice(1, -1) // Remove curly braces
 
@@ -61,19 +63,19 @@ function parse (string, args, _callback) {
           // The arguments are in an array from which the name is extracted, hence using the 0th element
         }
 
-        // If parser exists, run function - otherwise leave tag unchanged
-        // If errors are encountered, return unchanged tag
         let result
         try {
+          // If parser exists, run function - otherwise leave tag unchanged
           result = allParsers.hasOwnProperty(tagDef.name) ? allParsers[tagDef.name](args || null, ...tagDef.func) : tag
         } catch (e) {
-          console.error(e)
-          result = tag
+          if (args && args.enableLogging) console.error(e)
+          result = tag // If errors are encountered, return unchanged tag
         }
 
         // Replace tags in the parsed string
         parsedString = parsedString.replaceAll(tag, result)
       }
+
       if (!isRootFunc) _callback(parsedString)
       else return parsedString
     }
