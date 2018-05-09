@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>http://thesharks.github.io/JagTag-JS/</loc>
+     <lastmod>2018-05-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>http://thesharks.github.io/JagTag-JS/developers/intro/</loc>
+     <lastmod>2018-05-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://thesharks.github.io/JagTag-JS/developers/api/</loc>
+     <lastmod>2018-05-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://thesharks.github.io/JagTag-JS/developers/performance/</loc>
+     <lastmod>2018-05-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>http://thesharks.github.io/JagTag-JS/users/intro/</loc>
+     <lastmod>2018-05-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>http://thesharks.github.io/JagTag-JS</loc>
+     <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+</urlset>
