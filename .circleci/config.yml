@@ -19,7 +19,7 @@ jobs:
           command: npm test
   build:
     docker:
-      - image: circleci/python:3.5
+      - image: python:3.5
     steps:
       - checkout
       - restore_cache:
@@ -41,7 +41,7 @@ jobs:
             mkdocs build
   deploy:
     docker:
-      - image: circleci/python:3.5
+      - image: python:3.5
     steps:
       - checkout
       - restore_cache:
