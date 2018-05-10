@@ -11,9 +11,7 @@ Welcome to the developer section of the JagTag-JS documentation! The guides in t
 
 ## Installation and usage
 
-JagTag-JS is available on [NPM](https://npmjs.com/package/jagtag-js). Simply install it with `npm i jagtag-js`.
-
-If you are sketchy about the size of your dependency tree, you can opt out of installing the development dependencies by running `npm i --production jagtag-js`. This will not install the dev deps (Which are not needed for the operation of the module).
+JagTag-JS is available on [NPM](https://npmjs.com/package/jagtag-js). Simply install it with `npm i @thesharks/jagtag-js`.
 
 Integrating JagTag-JS into your code is also very straight-forward. Require the module, pass a string through it, and witness the magic happen.
 

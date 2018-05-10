@@ -1,7 +1,8 @@
 # JagTag-JS
 
-A JavaScript port of the [JagTag text parsing language](https://github.com/jagrosh/JagTag), originally written in Java by [@jagrosh](https://github.com/jagrosh).
+![Codecov](https://shields.dougley.com/codecov/c/github/thesharks/jagtag-js.svg) ![License](https://shields.dougley.com/github/license/thesharks/jagtag-js.svg) 
 
+A JavaScript port of the [JagTag text parsing language](https://github.com/jagrosh/JagTag), originally written in Java by [@jagrosh](https://github.com/jagrosh).
 
 This document is a mere README; most of the relevant information can be found in the [documentation](https://thesharks.github.io/JagTag-JS).
 
@@ -19,7 +20,7 @@ It's worth noting that the Discord-related tag functions have been developed to 
 
 ## Installation and usage
 
-JagTag-JS is available on NPM and you can install it with `npm i jagtag-js` (Use the --production flag if you don't need the dev deps). Make sure you have Node.js >= 8.x.x installed.
+JagTag-JS is available on NPM and you can install it with `npm i @thesharks/jagtag-js`. Make sure you have Node.js >= 8 installed.
 
 Basic syntax:
 
