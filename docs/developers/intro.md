@@ -11,12 +11,12 @@ Welcome to the developer section of the JagTag-JS documentation! The guides in t
 
 ## Installation and usage
 
-JagTag-JS is available on [NPM](https://npmjs.com/package/jagtag-js). Simply install it with `npm i @thesharks/jagtag-js`.
+JagTag-JS is available on NPM. Simply install it with `npm i @thesharks/jagtag-js`.
 
 Integrating JagTag-JS into your code is also very straight-forward. Require the module, pass a string through it, and witness the magic happen.
 
 ```js
-const JagTagParser = require('jagtag-js')
+const JagTagParser = require('@thesharks/jagtag-js')
 
 JagTagParser('change {upper:this} to uppercase') // Returns 'change THIS to uppercase'
 ```

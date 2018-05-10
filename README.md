@@ -25,7 +25,7 @@ JagTag-JS is available on NPM and you can install it with `npm i @thesharks/jagt
 Basic syntax:
 
 ```js
-const JagTagParser = require('jagtag-js')
+const JagTagParser = require('@thesharks/jagtag-js')
 
 JagTagParser('string to parse', argsObject)
 ```
@@ -37,7 +37,7 @@ For more information about the args object, see the [API reference](https://thes
 At its most basic level, JagTag-JS can be used to perform simple string-related operations without any complications.
 
 ```js
-const JagTagParser = require('jagtag-js')
+const JagTagParser = require('@thesharks/jagtag-js')
 
 JagTagParser('change {upper:this} to uppercase')
 // Returns 'change THIS to uppercase'
@@ -48,7 +48,7 @@ JagTagParser('change {upper:this} to uppercase')
 More advanced operations may require you to pass arguments to the parser in order to function correctly. Please check the [developer documentation](https://thesharks.github.io/JagTag-JS/developers/intro) for information on what parser-level arguments need to be passed for which method.
 
 ```js
-const JagTagParser = require('jagtag-js')
+const JagTagParser = require('@thesharks/jagtag-js')
 
 JagTagParser('{argslen} arguments were passed to this tag', { tagArgs: [ 'item1', 'item2', 'item3' ] })
 // Returns '3 arguments were passed to this tag'
