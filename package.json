@@ -8,7 +8,8 @@
     "install-docs": "deps.bat",
     "start-docs": "mkdocs serve",
     "build": "mkdocs build",
-    "test": "eslint . && jest --config jest.coverage.js",
+    "test": "eslint . && jest --config jest.coverage.js && codecov --disable=gcov --token $CODECOV_TOKEN",
+    "test-local": "eslint . && jest --config jest.coverage.js",
     "test-coverage": "jest --watch --config jest.coverage.js",
     "test-dev": "jest --watch",
     "prepare": "node getPlugins.js"
@@ -24,6 +25,7 @@
   },
   "homepage": "https://thesharks.github.io/JagTag-JS/",
   "devDependencies": {
+    "codecov": "^3.0.2",
     "eslint": "^4.19.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-plugin-import": "^2.9.0",
