@@ -22,6 +22,15 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: Install dependencies
+          command: npm install
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - node_modules
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
       - run: npm publish
   gh-build:
@@ -98,3 +107,5 @@ workflows:
             filters:
               tags:
                 only: /v[0-9]+(\.[0-9]+)*/
+              branches:
+                ignore: /.*/
