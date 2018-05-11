@@ -46,7 +46,7 @@ These methods allow the manipulation of strings in various ways.
 !!! warning "Indexing pitfall"
     The **START** and **END** parameters correspond to character positions in a string (First, second, etc.). In programming languages, there is a zeroth index, which results in **the first character being at the zeroth index**.
 
-> **JagTag:** **{substring:2|4|something}** and **{substring:-2|4|something}**<br>
+> **JagTag:** **{substring:2|6|something}** and **{substring:-2|4|something}**<br>
 > **Command:** ++tag example<br>
 > **Result:** meth ng
 

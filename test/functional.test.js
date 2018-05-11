@@ -16,7 +16,7 @@ describe('Functional parser', () => {
   })
 
   it('Executes conditional statements', () => {
-    expect(JagTagParser('{if:hello|===|hello|this was true|this was false}')).toBe('this was true')
+    expect(JagTagParser('{if:hello|===|hello|this was true|this was false} and {if:hell|===|hello|this was true|this was false}')).toBe('this was true and this was false')
   })
 
   it('Executes math', () => {
