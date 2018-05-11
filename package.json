@@ -11,8 +11,7 @@
     "test": "eslint . && jest --config jest.coverage.js && codecov --disable=gcov",
     "test-local": "eslint . && jest --config jest.coverage.js",
     "test-coverage": "jest --watch --config jest.coverage.js",
-    "test-dev": "jest --watch",
-    "postinstall": "node getPlugins.js"
+    "test-dev": "jest --watch"
   },
   "repository": {
     "type": "git",
@@ -41,6 +40,6 @@
     "lokijs": "^1.5.3",
     "moment": "^2.21.0",
     "require-directory": "^2.1.1",
-    "xregexp": "^4.1.1"
+    "xregexp": "github:thesharks/xregexp"
   }
 }

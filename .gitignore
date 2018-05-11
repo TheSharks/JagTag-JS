@@ -4,6 +4,3 @@ node_modules
 
 # Code coverage
 coverage
-
-# Ramda path util
-ramda.path.js
