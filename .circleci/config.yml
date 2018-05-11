@@ -17,7 +17,14 @@ jobs:
       - run:
           name: Test & upload coverage data
           command: npm test
-  build:
+  npm-publish:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
+      - run: npm publish
+  gh-build:
     docker:
       - image: python:3.5
     steps:
@@ -39,7 +46,7 @@ jobs:
           command: |
             . venv/bin/activate
             mkdocs build
-  deploy:
+  gh-deploy:
     docker:
       - image: python:3.5
     steps:
@@ -73,16 +80,21 @@ jobs:
 
 workflows:
   version: 2
-  test_build_deploy:
+  gh-pages:
     jobs:
-      - test
-      - build:
+      - gh-build
+      - gh-deploy:
           requires:
-            - test
-      - deploy:
-          requires:
-              - test
-              - build
+              - gh-build
           filters:
             branches:
               only: master
+  npm-publish:
+    jobs:
+        - test
+        - npm-deploy:
+            requires:
+               - test
+            filters:
+              tags:
+                only: /v[0-9]+(\.[0-9]+)*/
