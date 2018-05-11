@@ -92,7 +92,7 @@ workflows:
   npm-publish:
     jobs:
         - test
-        - npm-deploy:
+        - npm-publish:
             requires:
                - test
             filters:
