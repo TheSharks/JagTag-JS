@@ -324,6 +324,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#synchronous-api" title="Synchronous API" class="md-nav__link">
+    Synchronous API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tag-quantities" title="Tag quantities" class="md-nav__link">
     Tag quantities
   </a>
@@ -524,6 +531,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#synchronous-api" title="Synchronous API" class="md-nav__link">
+    Synchronous API
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#tag-quantities" title="Tag quantities" class="md-nav__link">
     Tag quantities
   </a>
@@ -564,23 +578,20 @@
                 
                 <h1 id="perfomance-considerations">Perfomance considerations<a class="headerlink" href="#perfomance-considerations" title="Permanent link">&para;</a></h1>
 <p>JagTag-JS is built to work as efficiently as possible while maintaining minimal dependency size. As such, JagTag-JS does not incoporate performance optimising modules or replacements for native methods that are allegedly more performant.</p>
-<p>Naturally, performance has been considered during development. However, due to developer convenience and language limitations, some concepts sacrifice performance for understandability. This document outlines what you can do, in case you wish to improve the performance of the module.</p>
-<p>An asynchronous API for JagTag-JS is not beyond consideration, but we have decided to not implement one for the initial release as the module's performance is quite adequate even with a synchronous API.</p>
+<p>Naturally, performance has been considered during development. However, due to developer convenience and language limitations, some concepts sacrifice performance for understandability. This document intends to alleviate your performance concerns if any.</p>
+<h2 id="synchronous-api">Synchronous API<a class="headerlink" href="#synchronous-api" title="Permanent link">&para;</a></h2>
+<p>You may ask yourself why the API of JagTag-JS is synchronous. Won't this lead to thread blocking issues?</p>
+<p>The answer is: <strong>No.</strong> No material ones. JagTag-JS only performs very primitive JavaScript operations such as processing strings, which does not incur large performance hits in the first place.</p>
+<p>As such, the common execution time for a single tag (In an isolated environment) is <strong>&lt;= 2 milliseconds</strong>. This number does not change notably until very high amounts of tags are present in a single string. The number does also not change notably when nesting tags. So there is no real need to worry about performance.</p>
 <h2 id="tag-quantities">Tag quantities<a class="headerlink" href="#tag-quantities" title="Permanent link">&para;</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This is only a concern in the current iteration of JagTag-JS. It will disappear if and when an asynchronous API is implemented.</p>
-</div>
-<p>As the API of JagTag-JS is synchronous, each tag is parsed before proceeding to the next. The performance hit this incurs is not major when dealing with low amounts of tags in a single string (Excluding nested tags, which are covered below).</p>
-<p>However, as the tag count rises, stacking particularly complex tags like Discord-related random selectors or Discord-related search functions has a risk of hampering module performance. This may indirectly lead to thread blocking issues.</p>
-<p>While JagTag-JS can theoretically support infinite amounts of tags, parsing speed is adversely proportional to the amount of tags. As such it may be a wise idea to limit the number of tags that can be parsed at once to a sensible number. For instance <a href="https://github.com/jagrosh/Spectra">Spectra</a> caps out at 200 tags.</p>
+<p>While JagTag-JS can theoretically support infinite amounts of tags and parsing is normally very fast, parsing speed is still adversely proportional to the amount of tags. As such, and also for good measure, it may be a wise idea to limit the number of tags that can be parsed at once to a sensible number. For instance <a href="https://github.com/jagrosh/Spectra">Spectra</a> caps out at 200 tags.</p>
 <p>This module uses the <a href="http://xregexp.com/api/#matchRecursive">matchRecursive</a> plugin from <a href="http://xregexp.com">XRegExp</a> for properly detecting tag boundaries even when they are nested. It's recommended to use it to gather data on how many tags are in a single string and throttling the amounts appropriately.</p>
 <h2 id="nested-tags">Nested tags<a class="headerlink" href="#nested-tags" title="Permanent link">&para;</a></h2>
 <p>In order to support nested tags, JagTag-JS draws inspiration from the <a href="http://www.purplemath.com/modules/orderops.htm">PEMDAS</a> principle in arithmetics. In practice, this means that tags are parsed from the deepest level upwards.</p>
 <p>Consider for instance the <strong>{upper:{lower:{upper:test}}}</strong> tag. The result of the first tag will depend on the next, the result of which will depend on the one after that. This pattern can theoretically<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> continue ad infinitum.</p>
 <p>Due to this, upon parsing a tag, JagTag-JS will look for nested tags and recursively run the parser until it finds a point where there are no further tags. It will leave previous parse operations waiting until the scan is complete and the deepest level has been found.</p>
 <p>At this point, the parser will proceed to parsing the tags one by one from the deepest level and going up from there until it reaches the root tag. Now the parsed tag can be returned and the parser can proceed to the next tag.</p>
-<p>This section largely follows along the lines of the previous one in the sense that as tag amounts rise, performance is impacted. Again, it's up to you to decide how to limit the performance impact, but bear in mind that nesting tags can get performance intensive in the long run.</p>
+<p>This does not incur a materially higher performance hit compared to multiple one-level tags in a single string. While the statements outlined in the first section hold true, it may still be a wise idea to limit the amount of tags that can be nested for good measure.</p>
 <div class="footnote">
 <hr />
 <ol>
