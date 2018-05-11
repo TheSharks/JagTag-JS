@@ -1,6 +1,7 @@
 const XRegExp = require('xregexp')
 const parsers = require('./src/parsers/controller')
 const mergeObjects = require('./src/utils').mergeObjects
+const events = require('./src/events')
 
 const matchRecursive = str => XRegExp.matchRecursive(str, '{', '}', 'gi')
 
@@ -77,7 +78,12 @@ function parse (string, args, _callback) {
       }
 
       if (!isRootFunc) _callback(parsedString)
-      else return parsedString
+      else {
+        // Clear tags registered within the message
+        // Even if args.id isn't supplied tags will stick around, but this is harmless since snowflakes are unique
+        if (args && args.id) events.clearTags(args.id)
+        return parsedString
+      }
     }
   }
 }

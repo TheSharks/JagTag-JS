@@ -9,6 +9,10 @@ describe('Variable parser', () => {
     expect(JagTagParser('{set:foo|bar}The variable foo is {get:foo}', { id: randstr(18) })).toBe('The variable foo is bar')
   })
 
+  it('Allows the same variable to be reused within a single tag', () => {
+    expect(JagTagParser('{set:foo|bar}Foo is {get:foo} and is still {get:foo}', { id: randstr(18) })).toBe('Foo is bar and is still bar')
+  })
+
   it('Returns undefined if a variable that is not defined is fetched', () => {
     expect(JagTagParser('{get:foo}', { id: randstr(18) })).toBe('undefined')
   })
