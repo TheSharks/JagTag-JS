@@ -16,7 +16,6 @@ Main parser function. Takes a string and an [args](#args) object, which will be 
     - If no string is passed to the parser, `undefined` will be returned.
     - If there is an unclosed tag within a string, no tags will be parsed in the string until the issue is corrected (String is returned unchanged).
     - If there are no tags within a string, the string is returned unchanged.
-    - The parser can theoretically handle infinite amounts of tags, but bear in mind that as the amount of tags (Nested tags in particular; see [Performance](/developers/performance)) rises, the performance hit incurred will rise as well. It may be wise to limit the amount of tags a single string can contain at any one time.
 
 !!! failure "A note about the callback parameter"
     Those who have browsed the source code may have noticed that the parser function also takes a callback parameter. **Do not define it unless you willingly want the parser to go haywire.** It is used internally to track tag nesting and parse them appropriately; it's not meant to be used by anyone else. Treat it as private.

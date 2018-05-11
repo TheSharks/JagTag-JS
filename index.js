@@ -37,6 +37,7 @@ function parse (string, args, _callback) {
 
     let tags = matchRecursive(string)
 
+    // TODO: Recovery from unclosed brace, so that all tags don't break
     if (tags === null) return string // Unclosed tag, return unchanged string
     else tags = tags.map(t => `{${t}}`) // Restore curly braces for funcRegex to work
 
@@ -44,7 +45,6 @@ function parse (string, args, _callback) {
 
     if (!tags) return string
     else {
-      // TODO: Asyncify this to allow several tags to be parsed at once?
       for (let tag of tags) {
         let stripped = tag.slice(1, -1) // Remove curly braces
 
@@ -68,7 +68,6 @@ function parse (string, args, _callback) {
           // If parser exists, run function - otherwise leave tag unchanged
           result = allParsers.hasOwnProperty(tagDef.name) ? allParsers[tagDef.name](args || null, ...tagDef.func) : tag
         } catch (e) {
-          // TODO: Recovery from unclosed brace, so that all tags don't break
           if (args && args.enableLogging) console.error(e)
           result = tag // If errors are encountered, return unchanged tag
         }
