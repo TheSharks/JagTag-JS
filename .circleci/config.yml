@@ -32,7 +32,7 @@ jobs:
           paths:
             - node_modules
       - run: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-      - run: npm publish
+      - run: npm publish --access=public
   gh-build:
     docker:
       - image: python:3.5
