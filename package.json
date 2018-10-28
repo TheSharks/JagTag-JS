@@ -1,6 +1,6 @@
 {
   "name": "@thesharks/jagtag-js",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "description": "A JavaScript port of https://github.com/jagrosh/JagTag.",
   "main": "index.js",
   "scripts": {
@@ -24,21 +24,21 @@
   },
   "homepage": "https://thesharks.github.io/JagTag-JS/",
   "devDependencies": {
-    "codecov": "^3.0.2",
-    "eslint": "^4.19.1",
-    "eslint-config-standard": "^11.0.0",
-    "eslint-plugin-import": "^2.9.0",
-    "eslint-plugin-node": "^6.0.1",
-    "eslint-plugin-promise": "^3.7.0",
-    "eslint-plugin-standard": "^3.0.1",
-    "jest": "^22.4.3",
+    "codecov": "^3.1.0",
+    "eslint": "^5.8.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^8.0.0",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "jest": "^23.6.0",
     "randstr": "^1.0.6"
   },
   "dependencies": {
-    "expr-eval": "^1.2.1",
+    "expr-eval": "^1.2.2",
     "levenshtein-lite": "^1.0.9",
-    "lokijs": "^1.5.3",
-    "moment": "^2.21.0",
+    "lokijs": "^1.5.5",
+    "moment": "^2.22.2",
     "require-directory": "^2.1.1",
     "xregexp": "github:thesharks/xregexp"
   }
