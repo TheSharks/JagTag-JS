@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
     
     
       
@@ -46,12 +46,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.982221ab.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.3020aac5.css">
       
       
     
     
-      <script src="../../assets/javascripts/modernizr.1f0bcf2b.js"></script>
+      <script src="../../assets/javascripts/modernizr.01ccdecf.js"></script>
     
     
       
@@ -585,7 +585,7 @@
 <p>This module uses the <a href="http://xregexp.com/api/#matchRecursive">matchRecursive</a> plugin from <a href="http://xregexp.com">XRegExp</a> for properly detecting tag boundaries even when they are nested. It's recommended to use it to gather data on how many tags are in a single string and throttling the amounts appropriately.</p>
 <h2 id="nested-tags">Nested tags<a class="headerlink" href="#nested-tags" title="Permanent link">&para;</a></h2>
 <p>In order to support nested tags, JagTag-JS draws inspiration from the <a href="http://www.purplemath.com/modules/orderops.htm">PEMDAS</a> principle in arithmetics. In practice, this means that tags are parsed from the deepest level upwards.</p>
-<p>Consider for instance the <strong>{upper:{lower:{upper:test}}}</strong> tag. The result of the first tag will depend on the next, the result of which will depend on the one after that. This pattern can theoretically<sup id="fnref:1"><a class="footnote-ref" href="#fn:1" rel="footnote">1</a></sup> continue ad infinitum.</p>
+<p>Consider for instance the <strong>{upper:{lower:{upper:test}}}</strong> tag. The result of the first tag will depend on the next, the result of which will depend on the one after that. This pattern can theoretically<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> continue ad infinitum.</p>
 <p>Due to this, upon parsing a tag, JagTag-JS will look for nested tags and recursively run the parser until it finds a point where there are no further tags. It will leave previous parse operations waiting until the scan is complete and the deepest level has been found.</p>
 <p>At this point, the parser will proceed to parsing the tags one by one from the deepest level and going up from there until it reaches the root tag. Now the parsed tag can be returned and the parser can proceed to the next tag.</p>
 <p>This does not incur a materially higher performance hit compared to multiple one-level tags in a single string. While the statements outlined in the first section hold true, it may still be a wise idea to limit the amount of tags that can be nested for good measure.</p>
@@ -593,7 +593,7 @@
 <hr />
 <ol>
 <li id="fn:1">
-<p>See <a href="#tag-quantities">Tag quantities</a>.&#160;<a class="footnote-backref" href="#fnref:1" rev="footnote" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>See <a href="#tag-quantities">Tag quantities</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -688,7 +688,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.d9aa80ab.js"></script>
+      <script src="../../assets/javascripts/application.dc02f8ce.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
