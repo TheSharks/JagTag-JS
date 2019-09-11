@@ -35,7 +35,7 @@
     "randstr": "^1.0.6"
   },
   "dependencies": {
-    "expr-eval": "^1.2.2",
+    "expr-eval": "^2.0.1",
     "levenshtein-lite": "^1.0.9",
     "lokijs": "^1.5.5",
     "moment": "^2.22.2",
