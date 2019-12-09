@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
     
     
       
@@ -46,12 +46,12 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
       
       
     
     
-      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -577,7 +577,7 @@
 <h2 id="jagtagparser-stringstring62-argsobject62">JagTagParser (string&lt;<strong>String</strong>>, args&lt;<strong>Object</strong>>)<a class="headerlink" href="#jagtagparser-stringstring62-argsobject62" title="Permanent link">&para;</a></h2>
 <p>Main parser function. Takes a string and an <a href="#args">args</a> object, which will be parsed and the output will be returned.</p>
 <details class="warning" open="open"><summary>Edge cases</summary><ul>
-<li>If no string is passed to the parser, <code class="codehilite"><span class="n">undefined</span></code> will be returned.</li>
+<li>If no string is passed to the parser, <code class="codehilite"><span class="err">undefined</span></code> will be returned.</li>
 <li>If there is an unclosed tag within a string, no tags will be parsed in the string until the issue is corrected (String is returned unchanged).</li>
 <li>If there are no tags within a string, the string is returned unchanged.</li>
 </ul>
@@ -587,7 +587,7 @@
 <p>Those who have browsed the source code may have noticed that the parser function also takes a callback parameter. <strong>Do not define it unless you willingly want the parser to go haywire.</strong> It is used internally to track tag nesting and parse them appropriately; it's not meant to be used by anyone else. Treat it as private.</p>
 </div>
 <h2 id="args">args<a class="headerlink" href="#args" title="Permanent link">&para;</a></h2>
-<p>The <code class="codehilite"><span class="n">args</span></code> object is required to be passed along to most parsers. It's good practice to pass <code class="codehilite"><span class="n">args</span></code> object along with every parser call.</p>
+<p>The <code class="codehilite"><span class="err">args</span></code> object is required to be passed along to most parsers. It's good practice to pass <code class="codehilite"><span class="err">args</span></code> object along with every parser call.</p>
 <h3 id="object-property-reference">Object property reference<a class="headerlink" href="#object-property-reference" title="Permanent link">&para;</a></h3>
 <table>
 <thead>
@@ -772,7 +772,7 @@
       
     </div>
     
-      <script src="../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
