@@ -25,7 +25,7 @@
   "homepage": "https://thesharks.github.io/JagTag-JS/",
   "devDependencies": {
     "codecov": "^3.1.0",
-    "eslint": "^5.8.0",
+    "eslint": "^6.8.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.0",
