@@ -3,7 +3,13 @@ const parsers = require('./src/parsers/controller')
 const mergeObjects = require('./src/utils').mergeObjects
 const events = require('./src/events')
 
-const matchRecursive = str => XRegExp.matchRecursive(str, '{', '}', 'gi')
+const matchRecursive = str => {
+  try {
+    return XRegExp.matchRecursive(str, '{', '}', 'gi')
+  } catch (_) {
+    return null
+  }
+}
 
 /**
  * Parse a string for JagTag-formatted tags and replace them.
@@ -25,7 +31,7 @@ function parse (string, args, _callback) {
   let allParsers = mergeObjects(parsers)
   if (args && args.disabledParsers && Array.isArray(args.disabledParsers)) {
     allParsers = args.disabledParsers.map(p => {
-      if (allParsers.hasOwnProperty(p)) delete allParsers[p]
+      if ({}.hasOwnProperty.call(allParsers, p)) delete allParsers[p]
     })
   }
 
@@ -46,7 +52,7 @@ function parse (string, args, _callback) {
 
     if (!tags) return string
     else {
-      for (let tag of tags) {
+      for (const tag of tags) {
         let stripped = tag.slice(1, -1) // Remove curly braces
 
         if (matchRecursive(stripped)) { // Nested tags found
@@ -67,7 +73,7 @@ function parse (string, args, _callback) {
         let result
         try {
           // If parser exists, run function - otherwise leave tag unchanged
-          result = allParsers.hasOwnProperty(tagDef.name) ? allParsers[tagDef.name](args || null, ...tagDef.func) : tag
+          result = {}.hasOwnProperty.call(allParsers, tagDef.name) ? allParsers[tagDef.name](args || null, ...tagDef.func) : tag
         } catch (e) {
           if (args && args.enableLogging) console.error(e)
           result = tag // If errors are encountered, return unchanged tag

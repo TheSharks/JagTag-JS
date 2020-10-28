@@ -13,7 +13,7 @@ String.prototype.hashCode = function () {
   let hash = 0
   if (this.length === 0) return hash
   for (let i = 0; i < this.length; i++) {
-    let char = this.charCodeAt(i)
+    const char = this.charCodeAt(i)
     hash = ((hash << 5) - hash) + char
     hash = hash & hash // Convert to 32bit int
   }
@@ -24,8 +24,8 @@ String.prototype.hashCode = function () {
 
 // Merge objects within objects to a single object
 function mergeObjects (originObject) {
-  let all = {}
-  for (let o in originObject) {
+  const all = {}
+  for (const o in originObject) {
     Object.assign(all, originObject[o])
   }
   return all
@@ -53,7 +53,7 @@ function safeCompare (item1, conditional, item2) {
 
 function getCreationTime (discordSnowflake) {
   // Shamelessly nicked this code from https://github.com/qeled/discordie
-  let formatted = (+discordSnowflake / 4194304) + 1420070400000
+  const formatted = (+discordSnowflake / 4194304) + 1420070400000
   return moment(new Date(parseInt(formatted))).utc()
 }
 

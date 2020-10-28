@@ -13,6 +13,6 @@ describe('Time parser', () => {
   })
 
   it('Formats time', () => {
-    expect(JagTagParser(`{time:1522317740626|DD-MM-YYYY}`)).toBe(moment(1522317740626).utc().format('DD-MM-YYYY'))
+    expect(JagTagParser('{time:1522317740626|DD-MM-YYYY}')).toBe(moment(1522317740626).utc().format('DD-MM-YYYY'))
   })
 })

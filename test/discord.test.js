@@ -134,15 +134,15 @@ const mockUsers = createList([
 
 // Function to simplify creation of mock users
 function createList (stringList) {
-  let newList = []
-  let ids = [
+  const newList = []
+  const ids = [
     '152664793587777537',
     '107904023901777920',
     '96554096349175808',
     '212445217763229699',
     '150293555271696384'
   ]
-  let nicknames = [
+  const nicknames = [
     'uINT32',
     'SaltyDev',
     'Webscale',
@@ -151,10 +151,10 @@ function createList (stringList) {
   ]
 
   stringList.map(x => { // Using legacy function to access 'this'
-    let id = ids[rng(5)]
-    let nick = nicknames[rng(5)]
-    let avatar = randstr(32)
-    let defaultAvatar = randstr(32)
+    const id = ids[rng(5)]
+    const nick = nicknames[rng(5)]
+    const avatar = randstr(32)
+    const defaultAvatar = randstr(32)
     newList.push({
       bot: [true, false][rng(2)],
       id: id,

@@ -43,8 +43,8 @@ function parseTags (contentClassName) {
   let newText = content
 
   if (tags) {
-    for (let tag of tags) {
-      let raw = tag.slice(2, -2)
+    for (const tag of tags) {
+      const raw = tag.slice(2, -2)
 
       if (mdnLinks.hasOwnProperty(raw)) newText = newText.replaceAll(tag, mdnLinks[raw])
       else if (erisLinks.hasOwnProperty(raw)) newText = newText.replaceAll(tag, erisLinks[raw])

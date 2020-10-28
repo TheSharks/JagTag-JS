@@ -12,7 +12,7 @@ events.on('CLEAR_TAGS', messageId => {
 
 const parsers = {
   get: (args, name) => {
-    let result = variables.findOne({
+    const result = variables.findOne({
       name: name,
       createdIn: args.id
     })

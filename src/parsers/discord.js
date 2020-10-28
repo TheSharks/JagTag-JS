@@ -17,21 +17,21 @@ const parsers = {
   channel: args => args.channel.name,
   channelid: args => args.channel.id,
   randuser: args => {
-    if (!args || !args.members || !Array.isArray(args.members)) throw new Error(`Parameter 'members' for randuser must be an array of Member objects `)
+    if (!args || !args.members || !Array.isArray(args.members)) throw new Error('Parameter \'members\' for randuser must be an array of Member objects ')
     else {
       args.members = args.members.map(u => u.username)
       return args.members[Math.floor(Math.random() * args.members.length)]
     }
   },
   randonline: args => {
-    if (!args || !args.members || !Array.isArray(args.members)) throw new Error(`Parameter 'members' for randonline must be an array of Member objects`)
+    if (!args || !args.members || !Array.isArray(args.members)) throw new Error('Parameter \'members\' for randonline must be an array of Member objects')
     else {
       args.members = args.members.filter(u => u.status === 'online').map(u => u.username)
       return args.members[Math.floor(Math.random() * args.members.length)] || 'NO USERS ONLINE'
     }
   },
   randchannel: args => {
-    if (!args || !args.channels || !Array.isArray(args.channels)) throw new Error(`Parameter 'members' for randchannel must be an array of TextChannel objects`)
+    if (!args || !args.channels || !Array.isArray(args.channels)) throw new Error('Parameter \'members\' for randchannel must be an array of TextChannel objects')
     else {
       args.channels = args.channels.map(c => c.name)
       return args.channels[Math.floor(Math.random() * args.channels.length)]
@@ -51,7 +51,7 @@ const parsers = {
  */
 function authorOrSearchBySelector (searchBy, searchString, author, list, options) {
   if (!searchString) return author[searchBy]
-  else if (!Array.isArray(list)) throw new Error(`Parameter 'list' for user/nick/discrim/avatar must be an array of Member objects`)
+  else if (!Array.isArray(list)) throw new Error("Parameter 'list' for user/nick/discrim/avatar must be an array of Member objects")
   else {
     list = list.map(u => {
       return {
@@ -74,8 +74,7 @@ function authorOrSearchBySelector (searchBy, searchString, author, list, options
           : matches.push({ value: i.uname, distance: comparison })
       }
     })
-
-    matches = matches.sort((a, b) => a.distance > b.distance).map(m => m.value) // Distance based sort, then map to return value
+    matches = matches.sort((a, b) => a.distance - b.distance).map(m => m.value) // Distance based sort, then map to return value
     return matches[0] || 'NO MATCH'
   }
 }

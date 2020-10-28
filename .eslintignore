@@ -1,5 +1,7 @@
 node_modules/*
 coverage/*
+docs/*
+test/*
 ramda.path.js
 *.json
 *.log
