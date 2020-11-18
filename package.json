@@ -26,7 +26,7 @@
   "devDependencies": {
     "codecov": "^3.8.0",
     "eslint": "^7.12.1",
-    "eslint-config-standard": "^15.0.1",
+    "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
