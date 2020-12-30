@@ -3,8 +3,8 @@ module.exports = {
   collectCoverage: true,
   coverageDirectory: './coverage/',
   coveragePathIgnorePatterns: [
-    '<rootDir>/node_modules/',
-    '<rootDir>/src/ramda.path.js',
-    '<rootDir>/src/utils.js'
-  ]
+    '<rootDir>/node_modules/'
+  ],
+  preset: 'ts-jest',
+  testEnvironment: 'node'
 }

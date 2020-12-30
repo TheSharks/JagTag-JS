@@ -7,3 +7,4 @@ ramda.path.js
 *.log
 *.md
 *.txt
+dist/*

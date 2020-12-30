@@ -1,0 +1,26 @@
+{
+  "typedocOptions": {
+    "entryPoints": [
+      "src"
+    ],
+    "out": "docs"
+  },
+  "exclude": [
+    "node_modules",
+    "test",
+    "dist"
+  ],
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "declarationMap": true
+  }
+}
