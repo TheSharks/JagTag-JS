@@ -53,6 +53,8 @@ export default function Parser (string: string, args?: IParserArguments): string
     output = `${output.substring(0, last)}${filterAll(result)}${output.substring(first + 1)}`
     iterations++
   }
+  output = defilterAll(output)
   clearVariables()
-  return defilterAll(output)
+  const maxLength = (args?.maxLength !== undefined ? args.maxLength : 2000)
+  return (output.length > maxLength ? output.slice(0, maxLength) : output)
 }

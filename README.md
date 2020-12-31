@@ -1,6 +1,6 @@
 # JagTag-JS
 
-![Codecov](https://shields.dougley.com/codecov/c/github/thesharks/jagtag-js.svg) ![License](https://shields.dougley.com/github/license/thesharks/jagtag-js.svg) 
+![Codecov](https://img.shields.io/codecov/c/github/thesharks/jagtag-js.svg) ![License](https://img.shields.io/github/license/thesharks/jagtag-js.svg) 
 
 A JavaScript port of the [JagTag text parsing language](https://github.com/jagrosh/JagTag), originally written in Java by [@jagrosh](https://github.com/jagrosh).
 

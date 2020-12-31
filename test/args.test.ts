@@ -2,7 +2,7 @@ import Parser from '../src/index'
 
 describe('Arg parser', () => {
   it('Returns arguments passed to the parser', () => {
-    expect(Parser('{args}', { tagArgs: ['arg1', 'arg2'] })).toBe('arg1, arg2')
+    expect(Parser('{args}', { tagArgs: ['arg1', 'arg2'] })).toBe('arg1 arg2')
   })
 
   it('Returns the length of arguments passed to the parser', () => {

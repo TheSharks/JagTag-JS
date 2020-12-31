@@ -1,7 +1,8 @@
 {
   "typedocOptions": {
     "entryPoints": [
-      "src"
+      "src/index.ts",
+      "src/interfaces"
     ],
     "out": "docs"
   },

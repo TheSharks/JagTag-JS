@@ -10,10 +10,12 @@ export const range = (args: IParserArguments, start: number, end: number): strin
   return `${Math.floor(Math.random() * (end - start) + start)}`
 }
 // hack: 'if' isnt a valid export
+// fixme: this isnt spec compliant! https://github.com/jagrosh/Spectra/wiki/JagTag#functional
 export const _if = (args: IParserArguments, item1: string, conditional: string, item2: string, truthyCond: string, falsyCond: string): string => {
   if (safeCompare(item1, conditional, item2)) return truthyCond
   else return falsyCond
 }
+// fixme: this isnt spec compliant! https://github.com/jagrosh/Spectra/wiki/JagTag#functional
 // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
 export const math = (args: IParserArguments, ...ctx: string[]): string => `${evaluate(ctx.join(' '))}`
 export const abs = (args: IParserArguments, ctx: number): string => `${Math.abs(ctx)}`
