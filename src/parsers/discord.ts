@@ -45,7 +45,8 @@ export const randuser = (args: IParserArguments): string => {
 export const randonline = (args: IParserArguments): string => {
   if (Array.isArray(args?.members)) {
     args.members = args.members.filter(x => x.status === 'online')
-    return args.members[Math.floor(Math.random() * args.members.length)].username
+    if (args.members.length === 0) return 'NO USERS ONLINE'
+    else return args.members[Math.floor(Math.random() * args.members.length)].username
   } else throw new TypeError("Can't use randonline if args.members is undefined or not an array")
 }
 export const randchannel = (args: IParserArguments): string => {
