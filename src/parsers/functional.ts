@@ -1,5 +1,4 @@
 import { IParserArguments } from '../interfaces/IParserArguments'
-import { evaluate } from 'mathjs'
 import { safeCompare } from '../utils'
 
 export const note = (): string => ''
@@ -10,14 +9,29 @@ export const range = (args: IParserArguments, start: number, end: number): strin
   return `${Math.floor(Math.random() * (end - start) + start)}`
 }
 // hack: 'if' isnt a valid export
-// fixme: this isnt spec compliant! https://github.com/jagrosh/Spectra/wiki/JagTag#functional
-export const _if = (args: IParserArguments, item1: string, conditional: string, item2: string, truthyCond: string, falsyCond: string): string => {
+export const _if = (args: IParserArguments, item1: string, conditional: string, item2: string, ...conds: string[]): string => {
+  const truthyCond = conds.find(x => x.startsWith('then:'))?.slice('then:'.length)
+  const falsyCond = conds.find(x => x.startsWith('else:'))?.slice('else:'.length)
+  if (truthyCond === undefined || falsyCond === undefined) throw new TypeError('Invalid conditions supplied')
   if (safeCompare(item1, conditional, item2)) return truthyCond
   else return falsyCond
 }
-// fixme: this isnt spec compliant! https://github.com/jagrosh/Spectra/wiki/JagTag#functional
-// eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-export const math = (args: IParserArguments, ...ctx: string[]): string => `${evaluate(ctx.join(' '))}`
+export const math = (args: IParserArguments, ...ctx: string[]): string => {
+  if (ctx.length < 3) throw new TypeError('Too few arguments for math')
+  while (ctx.length >= 3) {
+    const calc = ctx.slice(0, 3)
+    switch (calc[1]) {
+      case '+': ctx.splice(0, 3, `${+calc[0] + +calc[2]}`); break
+      case '-': ctx.splice(0, 3, `${+calc[0] - +calc[2]}`); break
+      case '*': ctx.splice(0, 3, `${+calc[0] * +calc[2]}`); break
+      case '/': ctx.splice(0, 3, `${+calc[0] / +calc[2]}`); break
+      case '%': ctx.splice(0, 3, `${+calc[0] % +calc[2]}`); break
+      case '^': ctx.splice(0, 3, `${+calc[0] ^ +calc[2]}`); break
+      default: throw new TypeError('Invalid arithmetic expression')
+    }
+  }
+  return ctx.join(' ')
+}
 export const abs = (args: IParserArguments, ctx: number): string => `${Math.abs(ctx)}`
 export const floor = (args: IParserArguments, ctx: number): string => `${Math.floor(ctx)}`
 export const ceil = (args: IParserArguments, ctx: number): string => `${Math.ceil(ctx)}`

@@ -1,4 +1,7 @@
 /* eslint-disable no-control-regex */
+
+import levenshtein from 'js-levenshtein'
+
 /**
  * Filter common tag escapes
  * @internal
@@ -53,13 +56,9 @@ export const safeCompare = (item1: any, conditional: any, item2: any): boolean =
     // Built-in
     case '>': return item1 > item2
     case '<': return item1 < item2
-    case '>=': return item1 >= item2
-    case '<=': return item1 <= item2
-    case '==': return item1 == item2 // eslint-disable-line eqeqeq
-    case '===': return item1 === item2
-    case '!=': return item1 != item2 // eslint-disable-line eqeqeq
-    case '!==': return item1 !== item2
+    case '=': return item1 === item2
     // Custom
+    case '~': return levenshtein(item1.toLowerCase(), item2.toLowerCase()) <= 2
     case '?': return new RegExp(item2, 'g').exec(item1) !== null
     default: return false
   }

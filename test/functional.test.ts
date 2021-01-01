@@ -14,11 +14,11 @@ describe('Functional parser', () => {
   })
 
   it('Executes conditional statements', () => {
-    expect(Parser('{if:hello|===|hello|this was true|this was false} and {if:hell|===|hello|this was true|this was false}')).toBe('this was true and this was false')
+    expect(Parser('{if:hello|=|hello|then:this was true|else:this was false} and {if:hell|=|hello|then:this was true|else:this was false}')).toBe('this was true and this was false')
   })
 
   it('Executes math', () => {
-    expect(Parser('{math:(2 + 2) * 3 / 4}')).toBe('3')
+    expect(Parser('{math:2|+|2|*|3|/|4}')).toBe('3')
   })
 
   it('Calculates absolute values', () => {
