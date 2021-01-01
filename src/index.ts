@@ -31,8 +31,7 @@ export default function Parser (string: string, args?: IParserArguments): string
           try {
             result = Reflect.get(Parsers, contents)(args)
           } catch (e) {
-            if (process.env.NODE_ENV === 'test') console.error(e)
-            else throw e
+            if (process.env.NODE_ENV !== 'test') throw e
           }
         }
       }
@@ -46,7 +45,7 @@ export default function Parser (string: string, args?: IParserArguments): string
           try {
             result = Reflect.get(Parsers, name)(args, ...params)
           } catch (e) {
-            if (process.env.NODE_ENV === 'test') console.error(e)
+            if (process.env.NODE_ENV !== 'test') throw e
           }
         }
       }

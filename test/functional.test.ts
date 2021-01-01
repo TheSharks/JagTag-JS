@@ -12,15 +12,7 @@ describe('Functional parser', () => {
   it('Chooses a number in a range', () => {
     expect(Parser('{range:1|5}')).toMatch(/[1-5]/g)
   })
-
-  it('Executes conditional statements', () => {
-    expect(Parser('{if:hello|=|hello|then:this was true|else:this was false} and {if:hell|=|hello|then:this was true|else:this was false}')).toBe('this was true and this was false')
-  })
-
-  it('Executes math', () => {
-    expect(Parser('{math:2|+|2|*|3|/|4}')).toBe('3')
-  })
-
+  
   it('Calculates absolute values', () => {
     expect(Parser('{abs:-5}')).toBe('5')
   })
