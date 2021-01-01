@@ -1,3 +1,4 @@
+/* eslint-disable no-control-regex */
 /**
  * Filter common tag escapes
  * @internal
@@ -5,9 +6,9 @@
  */
 export const filterEscapes = (ctx: string): string => {
   return ctx
-    .replace('\\{', '\u0012')
-    .replace('\\|', '\u0013')
-    .replace('\\}', '\u0014')
+    .replace(/\\{/g, '\u0012')
+    .replace(/\\\|/g, '\u0013')
+    .replace(/\\}/g, '\u0014')
 }
 
 /**
@@ -17,9 +18,9 @@ export const filterEscapes = (ctx: string): string => {
  */
 export const defilterEscapes = (ctx: string): string => {
   return ctx
-    .replace('\u0012', '\\{')
-    .replace('\u0013', '\\|')
-    .replace('\u0014', '\\}')
+    .replace(/\u0012/gu, '\\{')
+    .replace(/\u0013/gu, '\\|')
+    .replace(/\u0014/gu, '\\}')
 }
 
 /**
@@ -29,8 +30,8 @@ export const defilterEscapes = (ctx: string): string => {
  */
 export const filterAll = (ctx: string): string => {
   return filterEscapes(ctx)
-    .replace('{', '\u0015')
-    .replace('}', '\u0016')
+    .replace(/{/g, '\u0015')
+    .replace(/}/g, '\u0016')
 }
 
 /**
@@ -40,8 +41,8 @@ export const filterAll = (ctx: string): string => {
  */
 export const defilterAll = (ctx: string): string => {
   return defilterEscapes(ctx)
-    .replace('\u0015', '{')
-    .replace('\u0016', '}')
+    .replace(/\u0015/gu, '{')
+    .replace(/\u0016/gu, '}')
 }
 
 /**
@@ -73,3 +74,11 @@ export const variableStore = new Map()
  * @internal
  */
 export const clearVariables = (): void => variableStore.clear()
+
+/**
+ * @internal
+ */
+export const creationTime = (discordSnowflake: string): string => {
+  const formatted = (+discordSnowflake / 4194304) + 1420070400000
+  return new Date(formatted).toUTCString()
+}

@@ -1,3 +1,5 @@
+import { Guild, TextChannel, User, Member, AnyGuildChannel } from 'eris'
+
 /**
  * Arguments to pass to the parser.
  * @public
@@ -30,4 +32,32 @@ export interface IParserArguments {
    * @defaultValue 2000
    */
   maxLength?: number
+  /**
+   * The guild the tag is ran in
+   */
+  guild?: Guild
+  /**
+   * The channel the tag is ran in
+   */
+  channel?: TextChannel
+  /**
+   * The user that ran the tag
+   */
+  user?: User | Member
+  /**
+   * The members of the guild the tag is ran in.
+   *
+   * Please note that this is not inferred from
+   * IParserArguments.guild, and must be supplied
+   * seperately if required.
+   */
+  members?: Member[]
+  /**
+  * The members of the guild the tag is ran in.
+  *
+  * Please note that this is not inferred from
+  * IParserArguments.guild, and must be supplied
+  * seperately if required.
+  */
+  guildChannels?: AnyGuildChannel[]
 }

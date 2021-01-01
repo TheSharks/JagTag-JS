@@ -30,15 +30,20 @@ describe('Spec compliance', () => {
     expect(Parser('string with {faketag}')).toBe('string with {faketag}')
   })
 
+  it('[EX] Does not parse many invalid tags', () => {
+    expect(Parser('{faketag}{faketag}{faketag}')).toBe('{faketag}{faketag}{faketag}')
+  })
+
   it('[EX] Does not replace tags from disabled parsers', () => {
     expect(Parser('{upper:test}', { disabledParsers: ['upper'] })).toBe('{upper:test}')
   })
 
-  it('[EX] Does not parsing if a tag is left unclosed', () => {
+  it('[EX] Does not parse if a tag is left unclosed', () => {
     expect(Parser('string with {upper:test} and unclosed {args')).toBe('string with TEST and unclosed {args')
   })
 
   it('[EX] Does not replace invalid nested tags within valid ones', () => {
     expect(Parser('{upper:{doot:TEST}}')).toBe('{DOOT:TEST}')
   })
+  
 })

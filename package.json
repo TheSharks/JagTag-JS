@@ -27,9 +27,11 @@
   "homepage": "https://thesharks.github.io/JagTag-JS/",
   "devDependencies": {
     "@types/jest": "^26.0.19",
+    "@types/js-levenshtein": "^1.1.0",
     "@types/mathjs": "^6.0.9",
     "@typescript-eslint/eslint-plugin": "^4.11.1",
     "codecov": "^3.8.0",
+    "eris": "^0.14.0",
     "eslint": "^7.12.1",
     "eslint-config-standard-with-typescript": "^19.0.1",
     "eslint-plugin-import": "^2.22.1",
@@ -44,6 +46,7 @@
   },
   "dependencies": {
     "date-fns": "^2.16.1",
+    "js-levenshtein": "^1.1.6",
     "mathjs": "^8.1.0"
   }
 }

@@ -15,8 +15,9 @@ export default function Parser (string: string, args?: IParserArguments): string
   let lastOutput: string = ''
   let iterations: number = 0
   const maxIterations = (args?.iterations !== undefined ? args.iterations : 100)
+  const maxLength = (args?.maxLength !== undefined ? args.maxLength : 2000)
 
-  while (lastOutput !== output && iterations < maxIterations) {
+  while (lastOutput !== output && iterations < maxIterations && output.length <= maxLength) {
     lastOutput = output
     const first: number = output.indexOf('}')
     const last: number = (first === -1 ? -1 : output.lastIndexOf('{', first))
@@ -31,6 +32,7 @@ export default function Parser (string: string, args?: IParserArguments): string
             result = Reflect.get(Parsers, contents)(args)
           } catch (e) {
             if (process.env.NODE_ENV === 'test') console.error(e)
+            else throw e
           }
         }
       }
@@ -55,6 +57,5 @@ export default function Parser (string: string, args?: IParserArguments): string
   }
   output = defilterAll(output)
   clearVariables()
-  const maxLength = (args?.maxLength !== undefined ? args.maxLength : 2000)
   return (output.length > maxLength ? output.slice(0, maxLength) : output)
 }
