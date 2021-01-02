@@ -29,7 +29,7 @@ export const math = (args: IParserArguments, ...ctx: string[]): string => {
         case '/': ctx.splice(ctx.indexOf(calc[1]) - 1, 3, `${+calc[0] / +calc[2]}`); break
         case '%': ctx.splice(ctx.indexOf(calc[1]) - 1, 3, `${+calc[0] % +calc[2]}`); break
         case '^': ctx.splice(ctx.indexOf(calc[1]) - 1, 3, `${Math.pow(+calc[0], +calc[2])}`); break
-      // default: throw new TypeError('Invalid arithmetic expression')
+        default: throw new TypeError('Invalid arithmetic expression')
       }
     } else {
       // cant do math on non-ints, so some operands have string manipulation functions

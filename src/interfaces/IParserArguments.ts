@@ -7,6 +7,15 @@ import { Guild, TextChannel, User, Member, AnyGuildChannel } from 'eris'
 
 export interface IParserArguments {
   /**
+   * Whether or not to enable strict mode.
+   *
+   * Strict mode will throw errors when parsers fail,
+   * for example when using \{math\} with too little arguments.
+   *
+   * @defaultValue false
+   */
+  strictMode?: Boolean
+  /**
    * An array of parsers to disable while parsing the tag.
    */
   disabledParsers?: String[]
@@ -53,9 +62,9 @@ export interface IParserArguments {
    */
   members?: Member[]
   /**
-  * The members of the guild the tag is ran in.
+  * The channels of the guild the tag is ran in.
   *
-  * Please note that this is not inferred from
+  * Please note that this is not inferred froms
   * IParserArguments.guild, and must be supplied
   * seperately if required.
   */

@@ -21,6 +21,10 @@ describe('Math', () => {
     expect(Parser('{math:2|^|2}')).toBe('4')
   })
 
+  it('Modulo', () => {
+    expect(Parser('{math:3|%|2}')).toBe('1')
+  })
+
   it('Complex', () => {
     expect(Parser('{math:2|+|2|*|3|/|4}')).toBe('3.5')
   })
@@ -39,5 +43,9 @@ describe('Math', () => {
   
   it('[EX] String manipulation - Complex', () => {
     expect(Parser('{math:5|*|2|+|hello world|-| world}')).toBe('10hello')
+  })
+
+  it('[EX] String manipulation - Do nothing on unsupported expressions', () => {
+    expect(Parser('{math:hello world|*| world}')).toBe('hello world* world')
   })
 })
