@@ -4,8 +4,6 @@
 
 A JavaScript port of the [JagTag text parsing language](https://github.com/jagrosh/JagTag), originally written in Java by [@jagrosh](https://github.com/jagrosh).
 
-This document is a mere README; most of the relevant information can be found in the [documentation](https://thesharks.github.io/JagTag-JS).
-
 ## What is JagTag?
 
 JagTag is, in the author's own words, a simple yet powerful and customisable interpreted text parsing language. In practice, JagTag notation is used to customise user input with tags which use the format **{name:arg1|arg2}**.
@@ -30,7 +28,7 @@ const JagTagParser = require('@thesharks/jagtag-js')
 JagTagParser('string to parse', argsObject)
 ```
 
-For more information about the args object, see the [API reference](https://thesharks.github.io/JagTag-JS/developers/api).
+For more information about the args object, see the [API reference](https://thesharks.github.io/JagTag-JS/interfaces/interfaces_iparserarguments.iparserarguments.html).
 
 ### Simple example
 
@@ -53,8 +51,6 @@ const JagTagParser = require('@thesharks/jagtag-js')
 JagTagParser('{argslen} arguments were passed to this tag', { tagArgs: [ 'item1', 'item2', 'item3' ] })
 // Returns '3 arguments were passed to this tag'
 ```
-
-For more examples and help, check the [documentation](https://thesharks.github.io/JagTag-JS).
 
 ## Contributing
 
