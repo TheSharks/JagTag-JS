@@ -14,6 +14,10 @@ describe('Variable parser', () => {
     expect(Parser('{get:foo}')).toBe('undefined')
   })
 
+  it('Returns undefined if a variable is fetched before setting it', () => {
+    expect(Parser('{get:foo} {set:foo}')).toBe('undefined ')
+  })
+  
   it('[EX] Advanced manipulation', () => {
     expect(Parser('{set:all|1|2|3|4|5|6|7|}{set:all|{math:{get:all}|-|5|}}{get:all}')).toBe('1|2|3|4|6|7|')
   })
