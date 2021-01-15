@@ -1,7 +1,6 @@
 import Parser from '../src/index'
 import { format } from 'date-fns'
 
-
 describe('Time parser', () => {
   it('Returns current date', () => {
     expect(Parser('{now}')).toBe(new Date().toUTCString())

@@ -20,4 +20,8 @@ describe('Conditionals', () => {
   it('Regex', () => {
     expect(Parser('{if:this|?|th.*|then:this was true|else:this was false} and {if:hello|?|world|then:this was true|else:this was false}')).toBe('this was true and this was false')
   })
+
+  it('[EX] Invalid if-else statements are always false', () => {
+    expect(Parser('{if:hello|$|hello|then:this was true|else:this was false}')).toBe('this was false')
+  })
 })

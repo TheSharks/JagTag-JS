@@ -45,5 +45,4 @@ describe('Spec compliance', () => {
   it('[EX] Does not replace invalid nested tags within valid ones', () => {
     expect(Parser('{upper:{doot:TEST}}')).toBe('{DOOT:TEST}')
   })
-  
 })

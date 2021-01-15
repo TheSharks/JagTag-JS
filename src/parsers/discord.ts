@@ -61,6 +61,7 @@ function searchBySelector (searchBy: string, query: string | undefined, list: Me
   const matches = list.map((u) => {
     const result = levenshtein(options?.usernameSearch === true ? u.username : query, Reflect.get(u, searchBy))
     if (result !== -1) return Object.create({ uname: u.username, value: Reflect.get(u, searchBy), distance: result })
+    /* istanbul ignore next */
     else return null
   })
     .filter((x) => x !== null)
