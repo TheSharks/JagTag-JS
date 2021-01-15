@@ -43,7 +43,7 @@ JagTagParser('change {upper:this} to uppercase')
 
 ### Advanced example
 
-More advanced operations may require you to pass arguments to the parser in order to function correctly. Please check the [developer documentation](https://thesharks.github.io/JagTag-JS/developers/intro) for information on what parser-level arguments need to be passed for which method.
+More advanced operations may require you to pass arguments to the parser in order to function correctly. Please check the [documentation](https://thesharks.github.io/JagTag-JS/interfaces/interfaces_iparserarguments.iparserarguments.html) for information on what parser-level arguments need to be passed for which method.
 
 ```js
 const JagTagParser = require('@thesharks/jagtag-js')
@@ -54,7 +54,7 @@ JagTagParser('{argslen} arguments were passed to this tag', { tagArgs: [ 'item1'
 
 ### String interpolation
 
-Since Javascript will attempt to interpret strings as `'\d'` as character escapes, it's recommended to call the parser using `String.raw`.
+Since Javascript will attempt to interpret strings such as `'\d'` as character escapes, it's recommended to call the parser using `String.raw`.
 
 ```js
 const JagTagParser = require('@thesharks/jagtag-js')
