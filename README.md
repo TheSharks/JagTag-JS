@@ -52,6 +52,21 @@ JagTagParser('{argslen} arguments were passed to this tag', { tagArgs: [ 'item1'
 // Returns '3 arguments were passed to this tag'
 ```
 
+### String interpolation
+
+Since Javascript will attempt to interpret strings as `'\d'` as character escapes, it's recommended to call the parser using `String.raw`.
+
+```js
+const JagTagParser = require('@thesharks/jagtag-js')
+
+JagTagParser('{replaceregex:\d|with:#|in:I have 5 cats and 23 shirts}')
+// Returns: "I have 5 cats an# 23 shirts"
+// Probably not what you wanted!
+
+JagTagParser(String.raw`{replaceregex:\d|with:#|in:I have 5 cats and 23 shirts}`)
+// Returns: "I have # cats and ## shirts"
+```
+
 ## Contributing
 
 See [CONTRIBUTING.md](.github/CONTRIBUTING.md).

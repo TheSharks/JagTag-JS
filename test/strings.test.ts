@@ -18,7 +18,9 @@ describe('String manipulation', () => {
   })
 
   it('Replaces text', () => {
-    expect(Parser('{replace:hey|hello|hey world}')).toBe('hello world')
+    expect(Parser('{replace:hello|with:goodbye|in:Oh, hello! I say hello a lot!}')).toBe('Oh, goodbye! I say goodbye a lot!')
+    expect(Parser(String.raw`{replaceregex:\d|with:#|in:I have 5 cats and 23 shirts}`)).toBe('I have # cats and ## shirts')
+    // String.raw is needed since \d will get escaped otherwise
   })
 
   it('Extracts substrings', () => {

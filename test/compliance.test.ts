@@ -7,7 +7,7 @@ describe('Spec compliance', () => {
   })
 
   it('[HP] Replaces a valid multi-argument tag', () => {
-    expect(Parser('{replace:test|test2|this is a test}')).toBe('this is a test2')
+    expect(Parser('{replace:test|with:test2|in:this is a test}')).toBe('this is a test2')
   })
 
   it('[HP] Replaces several valid tags', () => {
