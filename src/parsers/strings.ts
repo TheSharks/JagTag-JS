@@ -19,9 +19,7 @@ export const hash = (args: IParserArguments, ctx: string): string => `${hashCode
 function hashCode (ctx: string): number {
   let hash = 0
   for (let i = 0; i < ctx.length; i++) {
-    var character = ctx.charCodeAt(i)
-    // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-    hash = ((hash << 5) - hash) + character
+    hash = ((hash << 5) - hash) + ctx.charCodeAt(i)
     hash = hash & hash // Convert to 32bit integer
   }
   return hash
