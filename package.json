@@ -13,7 +13,7 @@
     "test": "jest",
     "test:lint": "eslint .",
     "test:coverage": "jest --config jest.coverage.js",
-    "test:coverage:watch": "jest --watch --config jest.coverage.js",
+    "test:coverage:watch": "jest --watchAll --config jest.coverage.js",
     "test:watch": "jest --watch",
     "docs": "typedoc"
   },

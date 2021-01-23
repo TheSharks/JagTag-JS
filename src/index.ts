@@ -20,20 +20,24 @@ export default function Parser (string: string, args?: IParserArguments): string
 
   while (lastOutput !== output && iterations < maxIterations && output.length <= maxLength) {
     lastOutput = output
+    
     const first: number = output.indexOf('}')
     const last: number = (first === -1 ? -1 : output.lastIndexOf('{', first))
+    
     if (last === -1 && first === -1) break // No more matched tags, we're done
+    
     let result: string | null = null
     const contents: string = output.substring(last + 1, first)
     const split: number = contents.indexOf(':')
+
     if (split === -1) {
-      if (Reflect.has(Parsers, contents)) {
-        if (args?.disabledParsers === undefined || !args.disabledParsers.includes(contents)) {
-          try {
-            result = Reflect.get(Parsers, contents)(args)
-          } catch (e) {
-            if (strict === true) throw e
-          }
+      const isNotDisabled = args?.disabledParsers === undefined || !args.disabledParsers.includes(contents)
+
+      if (Reflect.has(Parsers, contents) && isNotDisabled) {
+        try {
+          result = Reflect.get(Parsers, contents)(args)
+        } catch (e) {
+          if (strict === true) throw e
         }
       }
     } else {
@@ -55,7 +59,9 @@ export default function Parser (string: string, args?: IParserArguments): string
     output = `${output.substring(0, last)}${filterAll(result)}${output.substring(first + 1)}`
     iterations++
   }
+  
   output = defilterAll(output)
   clearVariables()
+  
   return (output.length > maxLength ? output.slice(0, maxLength) : output)
 }

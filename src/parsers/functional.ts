@@ -3,11 +3,13 @@ import { safeCompare } from '../utils'
 
 export const note = (): string => ''
 export const choose = (args: IParserArguments, ...ctx: string[]): string => ctx[Math.floor(Math.random() * ctx.length)]
+
 export const range = (args: IParserArguments, start: number, end: number): string => {
   start = Math.ceil(start)
   end = Math.floor(end)
   return `${Math.floor(Math.random() * (end - start) + start)}`
 }
+
 // hack: 'if' isnt a valid export
 export const _if = (args: IParserArguments, item1: string, conditional: string, item2: string, ...conds: string[]): string => {
   const truthyCond = conds.find(x => x.startsWith('then:'))?.slice('then:'.length)
@@ -16,6 +18,7 @@ export const _if = (args: IParserArguments, item1: string, conditional: string, 
   if (safeCompare(item1, conditional, item2)) return truthyCond
   else return falsyCond
 }
+
 export const math = (args: IParserArguments, ...ctx: string[]): string => {
   if (ctx.length < 3) throw new TypeError('Too few arguments for math')
   // reconstruct args back to a string
