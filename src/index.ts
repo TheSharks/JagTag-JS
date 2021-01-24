@@ -29,29 +29,22 @@ export default function Parser (string: string, args?: IParserArguments): string
     let result = null
     const contents = output.substring(last + 1, first)
     const split = contents.indexOf(':')
+    let name, params
 
     if (split === -1) {
-      const isNotDisabled = args?.disabledParsers === undefined || !args.disabledParsers.includes(contents)
-
-      if (Reflect.has(Parsers, contents) && isNotDisabled) {
+      name = contents
+    } else {
+      params = contents.substring(split + 1).split('|')
+      name = contents.substring(0, split).trim()
+      if (name === 'if') name = '_if' // hack
+    }
+    const isNotDisabled = args?.disabledParsers === undefined || !args.disabledParsers.includes(name)
+    if (Reflect.has(Parsers, name)) {
+      if (isNotDisabled) {
         try {
-          result = Reflect.get(Parsers, contents)(args)
+          result = Reflect.get(Parsers, name)(args, ...(params ?? []))
         } catch (e) {
           if (strict === true) throw e
-        }
-      }
-    } else {
-      const params = contents.substring(split + 1).split('|')
-      let name = contents.substring(0, split).trim()
-      if (name === 'if') name = '_if' // hack
-
-      if (Reflect.has(Parsers, name)) {
-        if (args?.disabledParsers === undefined || !args.disabledParsers.includes(name)) {
-          try {
-            result = Reflect.get(Parsers, name)(args, ...params)
-          } catch (e) {
-            if (strict === true) throw e
-          }
         }
       }
     }
