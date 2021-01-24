@@ -6,7 +6,7 @@ export const length = (args: IParserArguments, ctx: string): string => `${ctx.le
 export const url = (args: IParserArguments, ctx: string): string => encodeURIComponent(ctx)
 export const replace = (args: IParserArguments, toReplace: string, ...conds: string[]): string => {
   const [replaceIn, replaceWith] = [conds.find(x => x.startsWith('in:'))?.slice('in:'.length), conds.find(x => x.startsWith('with:'))?.slice('with:'.length)]
-  if (replaceIn === undefined || replaceWith === undefined || toReplace === undefined) throw new TypeError('Not enough arguments for replace')
+  if (!replaceIn || !replaceWith || !toReplace) throw new TypeError('Not enough arguments for replace')
   return replaceIn?.replace(new RegExp(toReplace, 'g'), replaceWith)
 }
 // in js, this seems to be functionally identical

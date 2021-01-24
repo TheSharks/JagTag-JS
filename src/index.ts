@@ -11,24 +11,24 @@ import { filterAll, defilterAll, filterEscapes, clearVariables } from './utils'
  * @returns The parsed tag
  */
 export default function Parser (string: string, args?: IParserArguments): string {
-  let output: string = filterEscapes(string)
-  let lastOutput: string = ''
-  let iterations: number = 0
-  const maxIterations = (args?.iterations !== undefined ? args.iterations : 100)
-  const maxLength = (args?.maxLength !== undefined ? args.maxLength : 2000)
-  const strict = (args?.strictMode !== undefined ? args.strictMode : false)
+  let output = filterEscapes(string)
+  let lastOutput = ''
+  let iterations = 0
+  const maxIterations = (args?.maxIterations ?? 100)
+  const maxLength = (args?.maxLength ?? 2000)
+  const strict = (args?.strictMode ?? false)
 
   while (lastOutput !== output && iterations < maxIterations && output.length <= maxLength) {
     lastOutput = output
-    
-    const first: number = output.indexOf('}')
-    const last: number = (first === -1 ? -1 : output.lastIndexOf('{', first))
-    
+
+    const first = output.indexOf('}')
+    const last = (first === -1 ? -1 : output.lastIndexOf('{', first))
+
     if (last === -1 && first === -1) break // No more matched tags, we're done
-    
-    let result: string | null = null
-    const contents: string = output.substring(last + 1, first)
-    const split: number = contents.indexOf(':')
+
+    let result = null
+    const contents = output.substring(last + 1, first)
+    const split = contents.indexOf(':')
 
     if (split === -1) {
       const isNotDisabled = args?.disabledParsers === undefined || !args.disabledParsers.includes(contents)
@@ -41,8 +41,8 @@ export default function Parser (string: string, args?: IParserArguments): string
         }
       }
     } else {
-      const params: string[] = contents.substring(split + 1).split('|')
-      let name: string = contents.substring(0, split).trim()
+      const params = contents.substring(split + 1).split('|')
+      let name = contents.substring(0, split).trim()
       if (name === 'if') name = '_if' // hack
 
       if (Reflect.has(Parsers, name)) {
@@ -59,9 +59,9 @@ export default function Parser (string: string, args?: IParserArguments): string
     output = `${output.substring(0, last)}${filterAll(result)}${output.substring(first + 1)}`
     iterations++
   }
-  
+
   output = defilterAll(output)
   clearVariables()
-  
+
   return (output.length > maxLength ? output.slice(0, maxLength) : output)
 }

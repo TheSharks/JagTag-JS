@@ -28,7 +28,7 @@ export interface IParserArguments {
    * Increase this value with caution.
    * @defaultValue 100
    */
-  iterations?: Number
+  maxIterations?: Number
   /**
    * Arguments passed to the tag.
    *

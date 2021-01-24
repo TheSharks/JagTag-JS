@@ -39,23 +39,23 @@ const pemdas = (ctx: string): string => {
   const nextup = order.find(x => ctx.includes(x))
   if (nextup !== undefined) {
     const index = ctx.lastIndexOf(nextup)
-    const calc: string[] = [pemdas(ctx.substring(0, index)), nextup, pemdas(ctx.substring(index + 3))]
-    if (!isNaN(+calc[0]) && !isNaN(+calc[2])) {
-      switch (calc[1]) {
-        case '|+|': return `${+calc[0] + +calc[2]}`
-        case '|-|': return `${+calc[0] - +calc[2]}`
-        case '|*|': return `${+calc[0] * +calc[2]}`
-        case '|/|': return `${+calc[0] / +calc[2]}`
-        case '|%|': return `${+calc[0] % +calc[2]}`
-        case '|^|': return `${Math.pow(+calc[0], +calc[2])}`
+    const [leftSide, operand, rightSide] = [pemdas(ctx.substring(0, index)), nextup, pemdas(ctx.substring(index + 3))]
+    if (!isNaN(+leftSide) && !isNaN(+rightSide)) {
+      switch (operand) {
+        case '|+|': return `${+leftSide + +rightSide}`
+        case '|-|': return `${+leftSide - +rightSide}`
+        case '|*|': return `${+leftSide * +rightSide}`
+        case '|/|': return `${+leftSide / +rightSide}`
+        case '|%|': return `${+leftSide % +rightSide}`
+        case '|^|': return `${Math.pow(+leftSide, +rightSide)}`
         default: throw new TypeError('Invalid arithmetic expression')
       }
     } else {
       // cant do math on non-ints, so some operands have string manipulation functions
-      switch (calc[1]) {
-        case '|+|': return calc[0] + calc[2]
-        case '|-|': return calc[0].replace(calc[2], '')
-        default: return `${calc[0]}${calc[1].split('')[1]}${calc[2]}`
+      switch (operand) {
+        case '|+|': return leftSide + rightSide
+        case '|-|': return leftSide.replace(rightSide, '')
+        default: return `${leftSide}${operand.split('')[1]}${rightSide}`
       }
     }
   } else return ctx

@@ -17,7 +17,7 @@ export const nick = (args: IParserArguments, ctx: string): string => {
 }
 
 export const discrim = (args: IParserArguments, ctx: string): string => {
-  if (args?.members !== undefined && args?.user !== undefined) {
+  if (args?.members && args?.user) {
     return searchBySelector('discriminator', ctx, args.members, args.user, {
       usernameSearch: true
     })
@@ -25,7 +25,7 @@ export const discrim = (args: IParserArguments, ctx: string): string => {
 }
 
 export const avatar = (args: IParserArguments, ctx: string): string => {
-  if (args?.members !== undefined && args?.user !== undefined) {
+  if (args?.members && args?.user) {
     return searchBySelector('avatarURL', ctx, args.members, args.user, {
       usernameSearch: true
     })
