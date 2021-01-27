@@ -1,10 +1,8 @@
 # JagTag-JS
 
-![Codecov](https://shields.dougley.com/codecov/c/github/thesharks/jagtag-js.svg) ![License](https://shields.dougley.com/github/license/thesharks/jagtag-js.svg) 
+![Codecov](https://img.shields.io/codecov/c/github/thesharks/jagtag-js.svg) ![License](https://img.shields.io/github/license/thesharks/jagtag-js.svg) 
 
 A JavaScript port of the [JagTag text parsing language](https://github.com/jagrosh/JagTag), originally written in Java by [@jagrosh](https://github.com/jagrosh).
-
-This document is a mere README; most of the relevant information can be found in the [documentation](https://thesharks.github.io/JagTag-JS).
 
 ## What is JagTag?
 
@@ -30,7 +28,7 @@ const JagTagParser = require('@thesharks/jagtag-js')
 JagTagParser('string to parse', argsObject)
 ```
 
-For more information about the args object, see the [API reference](https://thesharks.github.io/JagTag-JS/developers/api).
+For more information about the args object, see the [API reference](https://thesharks.github.io/JagTag-JS/interfaces/interfaces_iparserarguments.iparserarguments.html).
 
 ### Simple example
 
@@ -45,7 +43,7 @@ JagTagParser('change {upper:this} to uppercase')
 
 ### Advanced example
 
-More advanced operations may require you to pass arguments to the parser in order to function correctly. Please check the [developer documentation](https://thesharks.github.io/JagTag-JS/developers/intro) for information on what parser-level arguments need to be passed for which method.
+More advanced operations may require you to pass arguments to the parser in order to function correctly. Please check the [documentation](https://thesharks.github.io/JagTag-JS/interfaces/interfaces_iparserarguments.iparserarguments.html) for information on what parser-level arguments need to be passed for which method.
 
 ```js
 const JagTagParser = require('@thesharks/jagtag-js')
@@ -54,7 +52,20 @@ JagTagParser('{argslen} arguments were passed to this tag', { tagArgs: [ 'item1'
 // Returns '3 arguments were passed to this tag'
 ```
 
-For more examples and help, check the [documentation](https://thesharks.github.io/JagTag-JS).
+### String interpolation
+
+Since Javascript will attempt to interpret strings such as `'\d'` as character escapes, it's recommended to call the parser using `String.raw`.
+
+```js
+const JagTagParser = require('@thesharks/jagtag-js')
+
+JagTagParser('{replaceregex:\d|with:#|in:I have 5 cats and 23 shirts}')
+// Returns: "I have 5 cats an# 23 shirts"
+// Probably not what you wanted!
+
+JagTagParser(String.raw`{replaceregex:\d|with:#|in:I have 5 cats and 23 shirts}`)
+// Returns: "I have # cats and ## shirts"
+```
 
 ## Contributing
 
