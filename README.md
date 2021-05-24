@@ -4,6 +4,8 @@
 
 A JavaScript port of the [JagTag text parsing language](https://github.com/jagrosh/JagTag), originally written in Java by [@jagrosh](https://github.com/jagrosh).
 
+This readme only covers technical information about JagTag-JS, for more comprehensive documentation about JagTag itself please see [the Spectra wiki](https://github.com/jagrosh/Spectra/wiki/JagTag) and the [original JagTag repo](https://github.com/jagrosh/JagTag)
+
 ## What is JagTag?
 
 JagTag is, in the author's own words, a simple yet powerful and customisable interpreted text parsing language. In practice, JagTag notation is used to customise user input with tags which use the format **{name:arg1|arg2}**.
